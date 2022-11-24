@@ -1,0 +1,365 @@
+IQ-TREE multicore version 2.2.0 COVID-edition for Linux 64-bit built Jun  1 2022
+Developed by Bui Quang Minh, James Barbetti, Nguyen Lam Tung,
+Olga Chernomor, Heiko Schmidt, Dominik Schrempf, Michael Woodhams, Ly Trong Nhan.
+
+Host:    monster (AVX2, FMA3, 15 GB RAM)
+Command: ./../iqtree-2.2.0-Linux/bin/iqtree2 -s ../data/language_alignments/morpho.phy -pre ../output/iqtree/BIN+G -z ../data/trees/BIN+G.raxml.mlTrees -te ../data/trees/BIN+G.raxml.bestTree -n 0 -zb 10000 -zw -au -seed 0 -treediff
+Seed:    0 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Oct 28 18:39:43 2022
+Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file ../data/language_alignments/morpho.phy ... Phylip format detected
+Alignment most likely contains binary sequences
+Constructing alignment: done in 0.000865002 secs using 99.31% CPU
+Alignment has 46 sequences with 425 columns, 260 distinct patterns
+219 parsimony-informative, 37 singleton sites, 169 constant sites
+         Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 3.8899e-05 secs using 95.12% CPU
+   1  It         0.00%    passed     95.58%
+   2  Sp         0.00%    passed     95.58%
+   3  Cat        0.00%    passed     95.58%
+   4  Fr         0.00%    passed     95.58%
+   5  Ptg-E      0.00%    passed     95.58%
+   6  Rm         0.00%    passed     95.58%
+   7  Lat        1.65%    passed     99.51%
+   8  ClG        1.65%    passed     99.51%
+   9  Grk        0.00%    passed     95.58%
+  10  Got       11.06%    passed     92.50%
+  11  OE         8.00%    passed     99.28%
+  12  E          0.00%    passed     95.58%
+  13  Ger        0.00%    passed     95.58%
+  14  Da         0.94%    passed     94.34%
+  15  Ice        0.00%    passed     95.58%
+  16  Swe        0.00%    passed     95.58%
+  17  Far        0.94%    passed     94.34%
+  18  Dut        0.00%    passed     95.58%
+  19  Blg        0.00%    passed     95.58%
+  20  Mac        0.00%    passed     95.58%
+  21  SC         0.00%    passed     95.58%
+  22  Slo        1.41%    passed     98.44%
+  23  OCS       12.24%    passed     91.57%
+  24  Cze        0.00%    passed     95.58%
+  25  Slvk       4.47%    passed     93.64%
+  26  Po         0.00%    passed     95.58%
+  27  Rus        0.00%    passed     95.58%
+  28  Ukr        1.41%    passed     98.44%
+  29  BelR       0.00%    passed     95.58%
+  30  Latv       0.00%    passed     95.58%
+  31  Lith       1.18%    passed     96.39%
+  32  Ir         4.24%    passed     95.73%
+  33  Wel        5.18%    passed     96.96%
+  34  ScGae      6.59%    passed     93.98%
+  35  Bre        4.47%    passed     93.64%
+  36  Sanskr    13.88%    passed     86.26%
+  37  Mar        4.94%    passed     89.47%
+  38  Hin        3.06%    passed     96.60%
+  39  Guj        8.24%    passed     88.83%
+  40  Kashm      4.94%    passed     99.06%
+  41  Bengali    8.71%    passed     84.59%
+  42  Nepali     7.76%    passed     93.08%
+  43  Farsi      3.06%    passed     96.60%
+  44  Pashto     9.41%    passed     87.90%
+  45  Alb        0.00%    passed     95.58%
+  46  Arm        0.00%    passed     95.58%
+****  TOTAL      2.81%  0 sequences failed composition chi2 test (p-value<5%; df=1)
+Checking for duplicate sequences: done in 0.000168713 secs using 98.98% CPU
+
+Reading input tree file ../data/trees/BIN+G.raxml.bestTree ...
+Perform fast likelihood tree search using GTR2+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Time for fast ML tree search: 0.025 seconds
+
+NOTE: ModelFinder requires 2 MB RAM!
+ModelFinder will test up to 44 binary models (sample size: 425) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  GTR2+FO       4156.258     90  8492.517     8541.559     8857.205
+  2  GTR2+FO+I     3989.813     91  8161.625     8211.908     8530.365
+  3  GTR2+FO+G4    3919.966     91  8021.931     8072.213     8390.671
+  4  GTR2+FO+I+G4  3916.424     92  8016.848     8068.390     8389.640
+  5  GTR2+FO+R2    3935.116     92  8054.231     8105.774     8427.024
+  6  GTR2+FO+R3    3917.925     94  8023.849     8077.971     8404.746
+  7  GTR2+FO+R4    3917.376     96  8026.752     8083.532     8415.753
+ 14  GTR2+FO+I+I+R2 3921.833     93  8029.665     8082.487     8406.510
+ 15  GTR2+FO+I+I+R3 3915.141     95  8020.283     8075.724     8405.231
+ 16  GTR2+FO+I+I+R4 3914.807     97  8023.615     8081.756     8416.668
+ 25  JC2+FQ+G4     4066.753     90  8313.505     8362.547     8678.193
+ 26  JC2+FQ+I+G4   4064.481     91  8310.963     8361.245     8679.703
+Akaike Information Criterion:           GTR2+FO+I+G4
+Corrected Akaike Information Criterion: GTR2+FO+I+G4
+Bayesian Information Criterion:         GTR2+FO+I+G4
+Best-fit model: GTR2+FO+I+G4 chosen according to BIC
+
+All model information printed to ../output/iqtree/BIN+G.model.gz
+CPU time for ModelFinder: 1.310 seconds (0h:0m:1s)
+Wall-clock time for ModelFinder: 1.343 seconds (0h:0m:1s)
+
+NOTE: 0 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.010)
+Thoroughly optimizing +I+G parameters from 10 start values...
+Init pinv, alpha: 0.000, 1.046 / Estimate: 0.000, 0.568 / LogL: -3919.965
+Init pinv, alpha: 0.044, 1.046 / Estimate: 0.221, 1.105 / LogL: -3916.320
+Init pinv, alpha: 0.088, 1.046 / Estimate: 0.219, 1.100 / LogL: -3916.326
+Init pinv, alpha: 0.133, 1.046 / Estimate: 0.220, 1.103 / LogL: -3916.322
+Init pinv, alpha: 0.177, 1.046 / Estimate: 0.221, 1.106 / LogL: -3916.319
+Init pinv, alpha: 0.221, 1.046 / Estimate: 0.224, 1.120 / LogL: -3916.306
+Init pinv, alpha: 0.265, 1.046 / Estimate: 0.241, 1.197 / LogL: -3916.312
+Init pinv, alpha: 0.309, 1.046 / Estimate: 0.240, 1.192 / LogL: -3916.308
+Init pinv, alpha: 0.353, 1.046 / Estimate: 0.240, 1.193 / LogL: -3916.309
+Init pinv, alpha: 0.398, 1.046 / Estimate: 0.241, 1.196 / LogL: -3916.312
+Optimal pinv,alpha: 0.224, 1.120 / LogL: -3916.306
+
+Parameters optimization took 1.532 sec
+Wrote distance file to... 
+BEST SCORE FOUND : -3916.306
+Total tree length: 3.379
+
+Total number of iterations: 0
+CPU time used for tree search: 0.000 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.000 sec (0h:0m:0s)
+Total CPU time used: 1.492 sec (0h:0m:1s)
+Total wall-clock time used: 1.538 sec (0h:0m:1s)
+Reading trees in ../data/trees/BIN+G.raxml.mlTrees ...
+
+WARNING: 200 trees detected but only 17 distinct trees will be evaluated
+Note: 11.408 MB of RAM required!
+Creating 10000 bootstrap replicates...
+done
+Tree 1 / LogL: -3916.306
+Tree 2 / LogL: -3916.986
+Tree 3 / LogL: -3948.633
+Tree 4 / identical to tree 2
+Tree 5 / identical to tree 2
+Tree 6 / identical to tree 2
+Tree 7 / identical to tree 2
+Tree 8 / LogL: -3921.467
+Tree 9 / LogL: -3926.755
+Tree 10 / identical to tree 2
+Tree 11 / LogL: -3925.031
+Tree 12 / identical to tree 2
+Tree 13 / LogL: -3918.192
+Tree 14 / identical to tree 2
+Tree 15 / identical to tree 11
+Tree 16 / identical to tree 2
+Tree 17 / identical to tree 2
+Tree 18 / identical to tree 1
+Tree 19 / identical to tree 2
+Tree 20 / identical to tree 2
+Tree 21 / identical to tree 8
+Tree 22 / identical to tree 1
+Tree 23 / identical to tree 2
+Tree 24 / identical to tree 2
+Tree 25 / identical to tree 2
+Tree 26 / identical to tree 2
+Tree 27 / identical to tree 2
+Tree 28 / identical to tree 1
+Tree 29 / LogL: -3926.300
+Tree 30 / identical to tree 2
+Tree 31 / identical to tree 2
+Tree 32 / identical to tree 2
+Tree 33 / identical to tree 1
+Tree 34 / identical to tree 2
+Tree 35 / identical to tree 2
+Tree 36 / identical to tree 8
+Tree 37 / identical to tree 2
+Tree 38 / identical to tree 2
+Tree 39 / identical to tree 2
+Tree 40 / identical to tree 2
+Tree 41 / identical to tree 2
+Tree 42 / identical to tree 8
+Tree 43 / identical to tree 2
+Tree 44 / LogL: -3925.109
+Tree 45 / identical to tree 2
+Tree 46 / identical to tree 2
+Tree 47 / identical to tree 9
+Tree 48 / identical to tree 2
+Tree 49 / identical to tree 2
+Tree 50 / identical to tree 2
+Tree 51 / identical to tree 8
+Tree 52 / identical to tree 2
+Tree 53 / identical to tree 1
+Tree 54 / identical to tree 8
+Tree 55 / identical to tree 8
+Tree 56 / identical to tree 2
+Tree 57 / identical to tree 8
+Tree 58 / identical to tree 2
+Tree 59 / identical to tree 2
+Tree 60 / identical to tree 2
+Tree 61 / identical to tree 2
+Tree 62 / identical to tree 2
+Tree 63 / identical to tree 2
+Tree 64 / identical to tree 2
+Tree 65 / identical to tree 2
+Tree 66 / identical to tree 13
+Tree 67 / identical to tree 8
+Tree 68 / identical to tree 2
+Tree 69 / identical to tree 1
+Tree 70 / identical to tree 8
+Tree 71 / identical to tree 8
+Tree 72 / identical to tree 8
+Tree 73 / identical to tree 2
+Tree 74 / identical to tree 2
+Tree 75 / identical to tree 2
+Tree 76 / identical to tree 2
+Tree 77 / identical to tree 8
+Tree 78 / identical to tree 2
+Tree 79 / identical to tree 8
+Tree 80 / identical to tree 2
+Tree 81 / identical to tree 2
+Tree 82 / identical to tree 2
+Tree 83 / identical to tree 8
+Tree 84 / identical to tree 1
+Tree 85 / identical to tree 2
+Tree 86 / identical to tree 2
+Tree 87 / identical to tree 2
+Tree 88 / identical to tree 8
+Tree 89 / LogL: -3923.352
+Tree 90 / identical to tree 2
+Tree 91 / identical to tree 2
+Tree 92 / identical to tree 2
+Tree 93 / identical to tree 2
+Tree 94 / identical to tree 2
+Tree 95 / identical to tree 2
+Tree 96 / identical to tree 8
+Tree 97 / LogL: -3918.082
+Tree 98 / identical to tree 8
+Tree 99 / identical to tree 2
+Tree 100 / identical to tree 1
+Tree 101 / identical to tree 8
+Tree 102 / identical to tree 8
+Tree 103 / identical to tree 8
+Tree 104 / identical to tree 2
+Tree 105 / identical to tree 2
+Tree 106 / identical to tree 2
+Tree 107 / identical to tree 13
+Tree 108 / identical to tree 2
+Tree 109 / identical to tree 2
+Tree 110 / LogL: -3941.289
+Tree 111 / identical to tree 2
+Tree 112 / identical to tree 89
+Tree 113 / identical to tree 2
+Tree 114 / identical to tree 8
+Tree 115 / identical to tree 29
+Tree 116 / identical to tree 2
+Tree 117 / identical to tree 8
+Tree 118 / identical to tree 2
+Tree 119 / identical to tree 1
+Tree 120 / identical to tree 2
+Tree 121 / identical to tree 2
+Tree 122 / identical to tree 2
+Tree 123 / identical to tree 110
+Tree 124 / identical to tree 2
+Tree 125 / identical to tree 8
+Tree 126 / identical to tree 2
+Tree 127 / identical to tree 2
+Tree 128 / identical to tree 2
+Tree 129 / identical to tree 8
+Tree 130 / identical to tree 110
+Tree 131 / identical to tree 2
+Tree 132 / identical to tree 1
+Tree 133 / identical to tree 2
+Tree 134 / identical to tree 8
+Tree 135 / identical to tree 8
+Tree 136 / LogL: -3936.214
+Tree 137 / identical to tree 8
+Tree 138 / identical to tree 2
+Tree 139 / identical to tree 13
+Tree 140 / identical to tree 29
+Tree 141 / LogL: -3928.577
+Tree 142 / identical to tree 29
+Tree 143 / identical to tree 29
+Tree 144 / identical to tree 8
+Tree 145 / identical to tree 8
+Tree 146 / identical to tree 2
+Tree 147 / identical to tree 29
+Tree 148 / identical to tree 2
+Tree 149 / identical to tree 2
+Tree 150 / identical to tree 2
+Tree 151 / identical to tree 2
+Tree 152 / identical to tree 2
+Tree 153 / identical to tree 29
+Tree 154 / identical to tree 29
+Tree 155 / identical to tree 2
+Tree 156 / identical to tree 2
+Tree 157 / identical to tree 2
+Tree 158 / identical to tree 2
+Tree 159 / identical to tree 2
+Tree 160 / LogL: -3936.701
+Tree 161 / identical to tree 8
+Tree 162 / identical to tree 29
+Tree 163 / identical to tree 2
+Tree 164 / identical to tree 2
+Tree 165 / identical to tree 136
+Tree 166 / identical to tree 29
+Tree 167 / identical to tree 1
+Tree 168 / identical to tree 2
+Tree 169 / identical to tree 29
+Tree 170 / identical to tree 8
+Tree 171 / identical to tree 8
+Tree 172 / identical to tree 2
+Tree 173 / identical to tree 2
+Tree 174 / identical to tree 2
+Tree 175 / identical to tree 136
+Tree 176 / identical to tree 2
+Tree 177 / identical to tree 29
+Tree 178 / identical to tree 2
+Tree 179 / identical to tree 2
+Tree 180 / identical to tree 2
+Tree 181 / identical to tree 11
+Tree 182 / identical to tree 2
+Tree 183 / identical to tree 2
+Tree 184 / identical to tree 2
+Tree 185 / identical to tree 2
+Tree 186 / identical to tree 2
+Tree 187 / identical to tree 9
+Tree 188 / identical to tree 2
+Tree 189 / identical to tree 2
+Tree 190 / identical to tree 2
+Tree 191 / identical to tree 2
+Tree 192 / identical to tree 2
+Tree 193 / identical to tree 1
+Tree 194 / identical to tree 2
+Tree 195 / identical to tree 2
+Tree 196 / LogL: -3934.825
+Tree 197 / identical to tree 8
+Tree 198 / identical to tree 8
+Tree 199 / identical to tree 1
+Tree 200 / LogL: -3916.986
+Performing RELL-BP test...
+Performing KH and SH test...
+Computing pairwise logl difference variance ...
+Performing WKH and WSH test...
+Performing ELW test...
+Performing approximately unbiased (AU) test...
+12 MB required for AU test
+Generating 10 x 10000 multiscale bootstrap replicates... 0.723 seconds
+TreeID	AU	RSS	d	c
+1	0.739	7.602	0.130	0.771
+2	0.654	7.940	0.477	0.872
+3	0.056	11.184	1.990	0.396
+4	0.473	9.973	0.829	0.761
+5	0.311	15.165	1.053	0.560
+6	0.322	7.870	1.004	0.542
+7	0.564	19.139	0.473	0.634
+8	0.298	9.213	1.139	0.610
+9	0.308	20.392	1.069	0.568 !!!
+10	0.293	5.594	1.262	0.717
+11	0.582	14.861	0.418	0.624
+12	0.137	9.409	1.497	0.401
+13	0.116	2.700	1.757	0.561
+14	0.193	4.080	1.377	0.510
+15	0.110	7.140	1.912	0.684
+16	0.181	9.898	1.375	0.465
+17	0.712	7.081	0.240	0.799
+Time for AU test: 0.725 seconds
+Time for evaluating all trees: 1.101 sec.
+
+Analysis results written to: 
+  IQ-TREE report:                ../output/iqtree/BIN+G.iqtree
+  Maximum-likelihood tree:       ../output/iqtree/BIN+G.treefile
+  Evaluated user trees:          ../output/iqtree/BIN+G.trees
+  Screen log file:               ../output/iqtree/BIN+G.log
+
+Date and Time: Fri Oct 28 18:39:47 2022

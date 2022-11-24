@@ -1,0 +1,96 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 16-Nov-2022 14:31:57 as follows:
+
+./../raxml-ng/build/bin/raxml-ng --msa ../data/language_alignments/saenkoromance.phy --model BIN+G --prefix ../output/raxml/tests/saenkoromance --threads 2 --seed 2
+
+Analysis options:
+  run mode: ML tree search
+  start tree(s): random (10) + parsimony (10)
+  random seed: 2
+  tip-inner: OFF
+  pattern compression: ON
+  per-rate scalers: OFF
+  site repeats: ON
+  fast spr radius: AUTO
+  spr subtree cutoff: 1.000000
+  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (2 threads), thread pinning: OFF
+
+[00:00:00] Reading alignment from file: ../data/language_alignments/saenkoromance.phy
+[00:00:00] Loaded alignment with 43 taxa and 467 sites
+
+Alignment comprises 1 partitions and 220 patterns
+
+Partition 0: noname
+Model: BIN+FO+G4m
+Alignment sites / patterns: 467 / 220
+Gaps: 0.38 %
+Invariant sites: 7.07 %
+
+
+NOTE: Binary MSA file created: ../output/raxml/tests/saenkoromance.raxml.rba
+
+Parallelization scheme autoconfig: 2 worker(s) x 1 thread(s)
+
+Parallel reduction/worker buffer size: 1 KB  / 0 KB
+
+[00:00:00] Generating 10 random starting tree(s) with 43 taxa
+[00:00:00] Generating 10 parsimony starting tree(s) with 43 taxa
+[00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 220 / 1760
+[00:00:00] Data distribution: max. searches per worker: 10
+
+Starting ML tree search with 20 distinct starting trees
+
+[00:00:00 -5612.002480] Initial branch length optimization
+[00:00:00 -4839.020631] Model parameter optimization (eps = 10.000000)
+[00:00:00 -4676.861657] AUTODETECT spr round 1 (radius: 5)
+[00:00:00 -4129.907163] AUTODETECT spr round 2 (radius: 10)
+[00:00:00 -3953.534082] AUTODETECT spr round 3 (radius: 15)
+[00:00:00 -3898.337395] AUTODETECT spr round 4 (radius: 20)
+[00:00:00 -3898.329762] SPR radius for FAST iterations: 15 (autodetect)
+[00:00:00 -3898.329762] Model parameter optimization (eps = 3.000000)
+[00:00:00 -3859.627098] FAST spr round 1 (radius: 15)
+[00:00:00 -3794.767599] FAST spr round 2 (radius: 15)
+[00:00:01 -3784.834549] FAST spr round 3 (radius: 15)
+[00:00:01 -3783.650481] FAST spr round 4 (radius: 15)
+[00:00:01 -3782.685076] FAST spr round 5 (radius: 15)
+[00:00:01 -3782.685073] Model parameter optimization (eps = 1.000000)
+[00:00:01 -3778.476169] SLOW spr round 1 (radius: 5)
+[00:00:02 -3778.472723] SLOW spr round 2 (radius: 10)
+[00:00:02 -3778.472677] SLOW spr round 3 (radius: 15)
+[00:00:03 -3778.472677] SLOW spr round 4 (radius: 20)
+[00:00:03 -3778.472677] SLOW spr round 5 (radius: 25)
+[00:00:03 -3778.472677] Model parameter optimization (eps = 0.100000)
+
+[00:00:03] [worker #0] ML tree search #1, logLikelihood: -3778.468448
+
+[00:00:03 -5609.907950] Initial branch length optimization
+[00:00:03 -4856.822273] Model parameter optimization (eps = 10.000000)
+[00:00:03 -4691.551952] AUTODETECT spr round 1 (radius: 5)
+[00:00:03] [worker #1] ML tree search #2, logLikelihood: -3778.468393
+[00:00:03 -4077.598279] AUTODETECT spr round 2 (radius: 10)
+[00:00:03 -3979.995165] AUTODETECT spr round 3 (radius: 15)
+[00:00:03 -3979.992930] SPR radius for FAST iterations: 10 (autodetect)
+[00:00:03 -3979.992930] Model parameter optimization (eps = 3.000000)
+[00:00:03 -3948.142791] FAST spr round 1 (radius: 10)
+[00:00:03 -3817.075098] FAST spr round 2 (radius: 10)
+[00:00:04 -3794.263750] FAST spr round 3 (radius: 10)
+[00:00:04 -3794.263369] Model parameter optimization (eps = 1.000000)
+[00:00:04 -3790.034825] SLOW spr round 1 (radius: 5)
+[00:00:04 -3790.012984] SLOW spr round 2 (radius: 10)
+[00:00:05 -3789.750619] SLOW spr round 3 (radius: 5)
+[00:00:05 -3784.244776] SLOW spr round 4 (radius: 5)
+[00:00:05] [worker #1] ML tree search #4, logLikelihood: -3778.468482
+[00:00:06 -3783.968314] SLOW spr round 5 (radius: 5)
+[00:00:06 -3782.973811] SLOW spr round 6 (radius: 5)
+[00:00:07 -3782.885236] SLOW spr round 7 (radius: 10)
+[00:00:07 -3782.885228] SLOW spr round 8 (radius: 15)

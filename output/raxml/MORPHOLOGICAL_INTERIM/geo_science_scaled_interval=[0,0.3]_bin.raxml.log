@@ -1,0 +1,103 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 26-Oct-2022 17:25:44 as follows:
+
+./../raxml-ng/build/bin/raxml-ng --msa ../data/language_alignments/Indo-European_WALS_BinaryOutgroup_March21_stability.ONLYFIN_common_grammatical.phy --model BIN --prefix ../output/raxml/MORPHOLOGICAL_INTERIM/geo_science_scaled_interval=[0,0.3]_bin --threads 2 --seed 2 --tree ../data/trees/geo_science_scaled_interval=[0,0.3].tree
+
+Analysis options:
+  run mode: ML tree search
+  start tree(s): user
+  random seed: 2
+  tip-inner: OFF
+  pattern compression: ON
+  per-rate scalers: OFF
+  site repeats: ON
+  fast spr radius: AUTO
+  spr subtree cutoff: 1.000000
+  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (2 threads), thread pinning: OFF
+
+[00:00:00] Reading alignment from file: ../data/language_alignments/Indo-European_WALS_BinaryOutgroup_March21_stability.ONLYFIN_common_grammatical.phy
+[00:00:00] Loaded alignment with 46 taxa and 425 sites
+
+Alignment comprises 1 partitions and 260 patterns
+
+Partition 0: noname
+Model: BIN+FO
+Alignment sites / patterns: 425 / 260
+Gaps: 2.81 %
+Invariant sites: 39.76 %
+
+
+NOTE: Binary MSA file created: ../output/raxml/MORPHOLOGICAL_INTERIM/geo_science_scaled_interval=[0,0.3]_bin.raxml.rba
+
+Parallelization scheme autoconfig: 1 worker(s) x 2 thread(s)
+
+Parallel reduction/worker buffer size: 1 KB  / 0 KB
+
+[00:00:00] Loading user starting tree(s) from: ../data/trees/geo_science_scaled_interval=[0,0.3].tree
+[00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 130 / 260
+[00:00:00] Data distribution: max. searches per worker: 1
+
+Starting ML tree search with 1 distinct starting trees
+
+[00:00:00 -6218.621037] Initial branch length optimization
+[00:00:00 -5274.203653] Model parameter optimization (eps = 10.000000)
+[00:00:00 -4936.113331] AUTODETECT spr round 1 (radius: 5)
+[00:00:00 -4347.245473] AUTODETECT spr round 2 (radius: 10)
+[00:00:00 -4252.553696] AUTODETECT spr round 3 (radius: 15)
+[00:00:00 -4252.553125] SPR radius for FAST iterations: 10 (autodetect)
+[00:00:00 -4252.553125] Model parameter optimization (eps = 3.000000)
+[00:00:00 -4251.252099] FAST spr round 1 (radius: 10)
+[00:00:00 -4170.335731] FAST spr round 2 (radius: 10)
+[00:00:00 -4166.625219] FAST spr round 3 (radius: 10)
+[00:00:00 -4165.527227] FAST spr round 4 (radius: 10)
+[00:00:00 -4156.031438] FAST spr round 5 (radius: 10)
+[00:00:00 -4148.359837] FAST spr round 6 (radius: 10)
+[00:00:00 -4148.359815] Model parameter optimization (eps = 1.000000)
+[00:00:00 -4148.350223] SLOW spr round 1 (radius: 5)
+[00:00:01 -4148.349894] SLOW spr round 2 (radius: 10)
+[00:00:01 -4146.688745] SLOW spr round 3 (radius: 5)
+[00:00:01 -4143.903834] SLOW spr round 4 (radius: 5)
+[00:00:01 -4143.903735] SLOW spr round 5 (radius: 10)
+[00:00:01 -4143.903735] SLOW spr round 6 (radius: 15)
+[00:00:02 -4143.903735] SLOW spr round 7 (radius: 20)
+[00:00:02 -4143.903735] SLOW spr round 8 (radius: 25)
+[00:00:02 -4143.903735] Model parameter optimization (eps = 0.100000)
+
+[00:00:02] ML tree search #1, logLikelihood: -4143.894063
+
+
+Optimized model parameters:
+
+   Partition 0: noname
+   Rate heterogeneity: NONE
+   Base frequencies (ML): 0.779900 0.220100 
+   Substitution rates (ML): 1.000000 
+
+
+Final LogLikelihood: -4143.894063
+
+AIC score: 8467.788126 / AICc score: 8516.830042 / BIC score: 8832.476151
+Free parameters (model + branch lengths): 90
+
+WARNING: Best ML tree contains 1 near-zero branches!
+
+Best ML tree with collapsed near-zero branches saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_INTERIM/geo_science_scaled_interval=[0,0.3]_bin.raxml.bestTreeCollapsed
+Best ML tree saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_INTERIM/geo_science_scaled_interval=[0,0.3]_bin.raxml.bestTree
+Optimized model saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_INTERIM/geo_science_scaled_interval=[0,0.3]_bin.raxml.bestModel
+
+Execution log saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_INTERIM/geo_science_scaled_interval=[0,0.3]_bin.raxml.log
+
+Analysis started: 26-Oct-2022 17:25:44 / finished: 26-Oct-2022 17:25:47
+
+Elapsed time: 2.539 seconds
+

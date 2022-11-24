@@ -1,0 +1,100 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 26-Oct-2022 17:06:59 as follows:
+
+./../raxml-ng/build/bin/raxml-ng --msa ../data/language_alignments/Indo-European_WALS_BinaryOutgroup_March21_stability.ONLYFIN_common_grammatical.phy --model BIN+G --prefix ../output/raxml/MORPHOLOGICAL_INTERIM/cognate_ie_compatible --threads 2 --seed 2 --tree ../data/trees/cognate_ie_compatible.tree
+
+Analysis options:
+  run mode: ML tree search
+  start tree(s): user
+  random seed: 2
+  tip-inner: OFF
+  pattern compression: ON
+  per-rate scalers: OFF
+  site repeats: ON
+  fast spr radius: AUTO
+  spr subtree cutoff: 1.000000
+  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (2 threads), thread pinning: OFF
+
+[00:00:00] Reading alignment from file: ../data/language_alignments/Indo-European_WALS_BinaryOutgroup_March21_stability.ONLYFIN_common_grammatical.phy
+[00:00:00] Loaded alignment with 46 taxa and 425 sites
+
+Alignment comprises 1 partitions and 260 patterns
+
+Partition 0: noname
+Model: BIN+FO+G4m
+Alignment sites / patterns: 425 / 260
+Gaps: 2.81 %
+Invariant sites: 39.76 %
+
+
+NOTE: Binary MSA file created: ../output/raxml/MORPHOLOGICAL_INTERIM/cognate_ie_compatible.raxml.rba
+
+Parallelization scheme autoconfig: 1 worker(s) x 2 thread(s)
+
+Parallel reduction/worker buffer size: 1 KB  / 0 KB
+
+[00:00:00] Loading user starting tree(s) from: ../data/trees/cognate_ie_compatible.tree
+[00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 130 / 1040
+[00:00:00] Data distribution: max. searches per worker: 1
+
+Starting ML tree search with 1 distinct starting trees
+
+[00:00:00 -5544.513195] Initial branch length optimization
+[00:00:00 -4405.033550] Model parameter optimization (eps = 10.000000)
+[00:00:00 -4214.494289] AUTODETECT spr round 1 (radius: 5)
+[00:00:00 -3943.204258] AUTODETECT spr round 2 (radius: 10)
+[00:00:00 -3941.096043] AUTODETECT spr round 3 (radius: 15)
+[00:00:00 -3941.091738] SPR radius for FAST iterations: 10 (autodetect)
+[00:00:00 -3941.091738] Model parameter optimization (eps = 3.000000)
+[00:00:00 -3939.690244] FAST spr round 1 (radius: 10)
+[00:00:00 -3924.744993] FAST spr round 2 (radius: 10)
+[00:00:00 -3924.306020] FAST spr round 3 (radius: 10)
+[00:00:00 -3924.085363] FAST spr round 4 (radius: 10)
+[00:00:01 -3922.053089] FAST spr round 5 (radius: 10)
+[00:00:01 -3922.052903] Model parameter optimization (eps = 1.000000)
+[00:00:01 -3921.986863] SLOW spr round 1 (radius: 5)
+[00:00:01 -3921.455266] SLOW spr round 2 (radius: 5)
+[00:00:02 -3921.454514] SLOW spr round 3 (radius: 10)
+[00:00:02 -3921.454501] SLOW spr round 4 (radius: 15)
+[00:00:03 -3921.454501] SLOW spr round 5 (radius: 20)
+[00:00:03 -3921.454501] SLOW spr round 6 (radius: 25)
+[00:00:03 -3921.454501] Model parameter optimization (eps = 0.100000)
+
+[00:00:03] ML tree search #1, logLikelihood: -3921.451614
+
+
+Optimized model parameters:
+
+   Partition 0: noname
+   Rate heterogeneity: GAMMA (4 cats, mean),  alpha: 0.570680 (ML),  weights&rates: (0.250000,0.047123) (0.250000,0.295576) (0.250000,0.865590) (0.250000,2.791711) 
+   Base frequencies (ML): 0.741600 0.258400 
+   Substitution rates (ML): 1.000000 
+
+
+Final LogLikelihood: -3921.451614
+
+AIC score: 8024.903228 / AICc score: 8075.185510 / BIC score: 8393.643342
+Free parameters (model + branch lengths): 91
+
+WARNING: Best ML tree contains 1 near-zero branches!
+
+Best ML tree with collapsed near-zero branches saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_INTERIM/cognate_ie_compatible.raxml.bestTreeCollapsed
+Best ML tree saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_INTERIM/cognate_ie_compatible.raxml.bestTree
+Optimized model saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_INTERIM/cognate_ie_compatible.raxml.bestModel
+
+Execution log saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_INTERIM/cognate_ie_compatible.raxml.log
+
+Analysis started: 26-Oct-2022 17:06:59 / finished: 26-Oct-2022 17:07:03
+
+Elapsed time: 3.429 seconds
+
