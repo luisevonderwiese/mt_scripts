@@ -86,8 +86,6 @@ optimizeSetNJ <- function(data, cog.tree=cog.tree, init.n=ncol(data), max.tries=
             dm <- dist.hamming(samplephy)
             tr <- NJ(dm)
 
-            tr  <- optim.parsimony(treeRA, samplephy)
-
             d <- treedist(tr, cog.tree, check.labels =TRUE)
             write.phyDat(x=samplephy, file=paste("current_opt_data_large_step", i, ".nex", sep=""), format="nexus")
             write.table(new.indexes, file=paste("current_opt_indexes_large_step", i, ".csv", sep=""), sep=",", col.names=F, row.names=F, quote=F)

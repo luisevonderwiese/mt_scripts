@@ -192,6 +192,7 @@ def get_iqtree_results(iqtree_file):
 
         data = {}
         data["logL"] = llh
+        data["tree_id"] = tree_id
         data["deltaL"] = deltaL
         data["tests"] = {}
 
@@ -222,3 +223,28 @@ def get_iqtree_results_for_eval_tree_str(iqtree_results, eval_tree_str, clusters
             return iqtree_results[i], i
 
     raise ValueError("This newick_string belongs to no cluster. newick_str: ", eval_tree_str[:10])
+
+def get_clusters(iqtree_file):
+    with open(iqtree_file) as f:
+        lines = f.readlines()
+        i = 0
+        u_trees = []
+        while(not lines[i].endswith("p-AU\n")):
+            i = i + 1
+        i = i + 2
+        cnt = 0
+        while(not lines[i].startswith("\n")):
+            data = lines[i].split(" ")
+            s = 0
+            while(data[s] == ""):
+                s = s +1
+            if data[s + 2]== "=":
+                #u_trees.append(int(float(data[s + 4])))
+                ref = int(float(data[s + 4]))
+                u_trees.append(u_trees[ref])
+            else:
+                #u_trees.append(int(float(data[s])))
+                u_trees.append(cnt)
+                cnt = cnt +1
+            i = i + 1
+        return u_trees
