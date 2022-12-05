@@ -348,6 +348,7 @@ def calculate_site_lh_raxml(tree_name, alignment_name, optimize= True):
     #siteLH = [float(data[i]) for i in range(5, len(data))]
     siteLH = [data[i] for i in range(5, len(data))]
     shutil.rmtree("temp/", ignore_errors=True)
+    return [lh, siteLH]
 
 def calculate_weight_calibration_raxml(tree_name, alignment_name):
     os.system(standard_raxml_path + ' -f u -p 12345 -t ' + tree_dir + tree_name +
@@ -374,7 +375,7 @@ def calculate_optimized_tree_raxml(tree_name, alignment_name):
     os.mkdir("temp/")
     os.system(raxml_ng_path + ' --evaluate --msa ' + alignment_dir + alignment_name +
             ' --threads 2 --model BIN+G --tree '  + tree_dir + tree_name +  ' --prefix temp/foo ' + '> out.txt')
-
+    os.system('cat temp/foo.raxml.bestTree > ' + tree_dir + rm_end(tree_name) + "_optimized_" + rm_end(alignment_name) + '.tree')
     shutil.rmtree("temp/", ignore_errors=True)
 
 
@@ -498,6 +499,15 @@ def variance_branch_length(tree_set):
 
 def bin_to_float(b):
     return struct.unpack('>d', decode('%%0%dx' % (8 << 1) % int(b, 2), 'hex')[-8:])[0]
+
+
+def rf_dist_matrix(tree_dict):
+    for i, name1 in enumerate(tree_dict):
+        for j, name2 in enumerate(tree_dict):
+            if name2 <= name1:
+                continue
+            rf_str = str(rf_distance_ete(tree_dict[name1], tree_dict[name2]))
+            print("RF distance of " + name1 + " to " + name2 + ": " + rf_str)
 
 
 
