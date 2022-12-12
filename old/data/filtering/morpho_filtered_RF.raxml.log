@@ -1,0 +1,35 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 03-Nov-2022 18:28:29 as follows:
+
+./../raxml-ng/build/bin/raxml-ng --rfdist --tree ../output/raxml/filtering/morpho_filtered.raxml.mlTrees --prefix ../output/raxml/filtering/morpho_filtered_RF
+
+Analysis options:
+  run mode: RF distance computation
+  start tree(s): user
+  random seed: 1667496509
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (auto)
+
+Reading input trees from file: ../output/raxml/filtering/morpho_filtered.raxml.mlTrees
+Loaded 20 trees with 46 taxa.
+
+Average absolute RF distance in this tree set: 34.589474
+Average relative RF distance in this tree set: 0.402203
+Number of unique topologies in this tree set: 20
+
+Pairwise RF distances saved to: /home/luise/master_thesis/output/raxml/filtering/morpho_filtered_RF.raxml.rfDistances
+
+Execution log saved to: /home/luise/master_thesis/output/raxml/filtering/morpho_filtered_RF.raxml.log
+
+Analysis started: 03-Nov-2022 18:28:29 / finished: 03-Nov-2022 18:28:29
+
+Elapsed time: 0.018 seconds
+

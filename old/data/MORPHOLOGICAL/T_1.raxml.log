@@ -1,0 +1,42 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 07-Oct-2022 16:55:48 as follows:
+
+./../raxml-ng/build/bin/raxml-ng --check --msa ../data/language_alignments/IE2011_RelaxedCovarion_AllSingletonsGeo.phy --model BIN --prefix ../output/raxml/MORPHOLOGICAL//T_1
+
+Analysis options:
+  run mode: Alignment validation
+  start tree(s): 
+  random seed: 1665154548
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (auto)
+
+[00:00:00] Reading alignment from file: ../data/language_alignments/IE2011_RelaxedCovarion_AllSingletonsGeo.phy
+[00:00:00] Loaded alignment with 46 taxa and 5997 sites
+
+Alignment comprises 1 partitions and 5997 sites
+
+Partition 0: noname
+Model: BIN+FO
+Alignment sites: 5997
+Gaps: 1.62 %
+Invariant sites: 40.55 %
+
+
+
+Alignment can be successfully read by RAxML-NG.
+
+
+Execution log saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL/T_1.raxml.log
+
+Analysis started: 07-Oct-2022 16:55:48 / finished: 07-Oct-2022 16:55:48
+
+Elapsed time: 0.031 seconds
+

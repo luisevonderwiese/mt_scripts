@@ -1,0 +1,129 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 07-Oct-2022 16:41:29 as follows:
+
+./../raxml-ng/build/bin/raxml-ng --msa ../data/language_alignments/Indo-European_WALS_BinaryOutgroup_March21_stability.ONLYFIN_common_grammatical.phy --model BIN --prefix ../output/raxml/MORPHOLOGICAL//T_4 --threads 2 --seed 2 --tree pars{25},rand{25}
+
+Analysis options:
+  run mode: ML tree search
+  start tree(s): random (25) + parsimony (25)
+  random seed: 2
+  tip-inner: OFF
+  pattern compression: ON
+  per-rate scalers: OFF
+  site repeats: ON
+  fast spr radius: AUTO
+  spr subtree cutoff: 1.000000
+  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (2 threads), thread pinning: OFF
+
+[00:00:00] Reading alignment from file: ../data/language_alignments/Indo-European_WALS_BinaryOutgroup_March21_stability.ONLYFIN_common_grammatical.phy
+[00:00:00] Loaded alignment with 46 taxa and 425 sites
+
+Alignment comprises 1 partitions and 260 patterns
+
+Partition 0: noname
+Model: BIN+FO
+Alignment sites / patterns: 425 / 260
+Gaps: 2.81 %
+Invariant sites: 39.76 %
+
+
+NOTE: Binary MSA file created: ../output/raxml/MORPHOLOGICAL//T_4.raxml.rba
+
+Parallelization scheme autoconfig: 2 worker(s) x 1 thread(s)
+
+Parallel reduction/worker buffer size: 1 KB  / 0 KB
+
+[00:00:00] Generating 25 random starting tree(s) with 46 taxa
+[00:00:00] Generating 25 parsimony starting tree(s) with 46 taxa
+[00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 260 / 520
+[00:00:00] Data distribution: max. searches per worker: 25
+
+Starting ML tree search with 50 distinct starting trees
+
+[00:00:02] [worker #1] ML tree search #2, logLikelihood: -4148.837204
+[00:00:02] [worker #0] ML tree search #1, logLikelihood: -4143.893803
+[00:00:05] [worker #1] ML tree search #4, logLikelihood: -4141.014673
+[00:00:06] [worker #0] ML tree search #3, logLikelihood: -4143.958868
+[00:00:07] [worker #1] ML tree search #6, logLikelihood: -4141.014642
+[00:00:08] [worker #0] ML tree search #5, logLikelihood: -4148.837105
+[00:00:10] [worker #1] ML tree search #8, logLikelihood: -4143.958664
+[00:00:11] [worker #0] ML tree search #7, logLikelihood: -4141.014599
+[00:00:12] [worker #1] ML tree search #10, logLikelihood: -4143.893879
+[00:00:13] [worker #0] ML tree search #9, logLikelihood: -4152.388653
+[00:00:14] [worker #1] ML tree search #12, logLikelihood: -4143.894143
+[00:00:16] [worker #1] ML tree search #14, logLikelihood: -4146.943548
+[00:00:16] [worker #0] ML tree search #11, logLikelihood: -4141.014561
+[00:00:18] [worker #1] ML tree search #16, logLikelihood: -4141.014695
+[00:00:19] [worker #0] ML tree search #13, logLikelihood: -4141.014789
+[00:00:23] [worker #1] ML tree search #18, logLikelihood: -4145.306327
+[00:00:26] [worker #1] ML tree search #20, logLikelihood: -4148.770549
+[00:00:26] [worker #0] ML tree search #15, logLikelihood: -4145.305930
+[00:00:28] [worker #1] ML tree search #22, logLikelihood: -4152.750933
+[00:00:29] [worker #1] ML tree search #24, logLikelihood: -4143.958480
+[00:00:30] [worker #0] ML tree search #17, logLikelihood: -4141.014571
+[00:00:33] [worker #1] ML tree search #26, logLikelihood: -4145.305930
+[00:00:33] [worker #0] ML tree search #19, logLikelihood: -4143.893829
+[00:00:35] [worker #1] ML tree search #28, logLikelihood: -4146.955486
+[00:00:39] [worker #0] ML tree search #21, logLikelihood: -4145.316377
+[00:00:40] [worker #1] ML tree search #30, logLikelihood: -4156.622165
+[00:00:41] [worker #0] ML tree search #23, logLikelihood: -4156.622544
+[00:00:42] [worker #1] ML tree search #32, logLikelihood: -4146.943355
+[00:00:43] [worker #0] ML tree search #25, logLikelihood: -4143.958446
+[00:00:43] [worker #1] ML tree search #34, logLikelihood: -4164.019980
+[00:00:45] [worker #1] ML tree search #36, logLikelihood: -4157.648094
+[00:00:46] [worker #0] ML tree search #27, logLikelihood: -4145.306773
+[00:00:48] [worker #0] ML tree search #29, logLikelihood: -4141.014640
+[00:00:48] [worker #1] ML tree search #38, logLikelihood: -4145.306729
+[00:00:50] [worker #1] ML tree search #40, logLikelihood: -4148.837011
+[00:00:52] [worker #0] ML tree search #31, logLikelihood: -4145.306632
+[00:00:54] [worker #1] ML tree search #42, logLikelihood: -4157.648048
+[00:00:56] [worker #1] ML tree search #44, logLikelihood: -4143.958432
+[00:00:56] [worker #0] ML tree search #33, logLikelihood: -4145.306082
+[00:00:58] [worker #1] ML tree search #46, logLikelihood: -4148.837038
+[00:00:59] [worker #1] ML tree search #48, logLikelihood: -4148.837009
+[00:01:00] [worker #0] ML tree search #35, logLikelihood: -4143.894166
+[00:01:01] [worker #1] ML tree search #50, logLikelihood: -4152.388231
+[00:01:02] [worker #0] ML tree search #37, logLikelihood: -4170.202248
+[00:01:04] [worker #0] ML tree search #39, logLikelihood: -4162.278159
+[00:01:07] [worker #0] ML tree search #41, logLikelihood: -4167.122509
+[00:01:08] [worker #0] ML tree search #43, logLikelihood: -4148.769902
+[00:01:10] [worker #0] ML tree search #45, logLikelihood: -4143.958489
+[00:01:11] [worker #0] ML tree search #47, logLikelihood: -4148.837069
+[00:01:13] [worker #0] ML tree search #49, logLikelihood: -4143.958475
+
+Optimized model parameters:
+
+   Partition 0: noname
+   Rate heterogeneity: NONE
+   Base frequencies (ML): 0.780593 0.219407 
+   Substitution rates (ML): 1.000000 
+
+
+Final LogLikelihood: -4141.014561
+
+AIC score: 8462.029121 / AICc score: 8511.071037 / BIC score: 8826.717146
+Free parameters (model + branch lengths): 90
+
+WARNING: Best ML tree contains 1 near-zero branches!
+
+Best ML tree with collapsed near-zero branches saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL/T_4.raxml.bestTreeCollapsed
+Best ML tree saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL/T_4.raxml.bestTree
+All ML trees saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL/T_4.raxml.mlTrees
+Optimized model saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL/T_4.raxml.bestModel
+
+Execution log saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL/T_4.raxml.log
+
+Analysis started: 07-Oct-2022 16:41:29 / finished: 07-Oct-2022 16:42:43
+
+Elapsed time: 73.950 seconds
+

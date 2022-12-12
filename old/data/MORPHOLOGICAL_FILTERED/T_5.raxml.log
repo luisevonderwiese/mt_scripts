@@ -1,0 +1,100 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 11-Oct-2022 11:30:31 as follows:
+
+./../raxml-ng/build/bin/raxml-ng --search1 --msa ../data/language_alignments/Indo-European_WALS_BinaryOutgroup_March21_stability.ONLYFIN_common_grammatical_filtered_-5.0.phy --model BIN --prefix ../output/raxml/MORPHOLOGICAL_FILTERED/T_5 --threads 2 --seed 2
+
+Analysis options:
+  run mode: ML tree search
+  start tree(s): random (1)
+  random seed: 2
+  tip-inner: OFF
+  pattern compression: ON
+  per-rate scalers: OFF
+  site repeats: ON
+  fast spr radius: AUTO
+  spr subtree cutoff: 1.000000
+  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (2 threads), thread pinning: OFF
+
+[00:00:00] Reading alignment from file: ../data/language_alignments/Indo-European_WALS_BinaryOutgroup_March21_stability.ONLYFIN_common_grammatical_filtered_-5.0.phy
+[00:00:00] Loaded alignment with 46 taxa and 208 sites
+
+Alignment comprises 1 partitions and 129 patterns
+
+Partition 0: noname
+Model: BIN+FO
+Alignment sites / patterns: 208 / 129
+Gaps: 1.81 %
+Invariant sites: 42.31 %
+
+
+NOTE: Binary MSA file created: ../output/raxml/MORPHOLOGICAL_FILTERED/T_5.raxml.rba
+
+Parallelization scheme autoconfig: 1 worker(s) x 2 thread(s)
+
+Parallel reduction/worker buffer size: 1 KB  / 0 KB
+
+[00:00:00] Generating 1 random starting tree(s) with 46 taxa
+[00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 65 / 130
+[00:00:00] Data distribution: max. searches per worker: 1
+
+Starting ML tree search with 1 distinct starting trees
+
+[00:00:00 -3685.002849] Initial branch length optimization
+[00:00:00 -3076.740249] Model parameter optimization (eps = 10.000000)
+[00:00:00 -2860.803341] AUTODETECT spr round 1 (radius: 5)
+[00:00:00 -2300.131442] AUTODETECT spr round 2 (radius: 10)
+[00:00:00 -2060.757831] AUTODETECT spr round 3 (radius: 15)
+[00:00:00 -2053.286343] AUTODETECT spr round 4 (radius: 20)
+[00:00:00 -2013.818808] AUTODETECT spr round 5 (radius: 25)
+[00:00:00 -2013.818544] SPR radius for FAST iterations: 20 (autodetect)
+[00:00:00 -2013.818544] Model parameter optimization (eps = 3.000000)
+[00:00:00 -2013.805763] FAST spr round 1 (radius: 20)
+[00:00:00 -1960.736570] FAST spr round 2 (radius: 20)
+[00:00:00 -1954.389443] FAST spr round 3 (radius: 20)
+[00:00:00 -1951.761372] FAST spr round 4 (radius: 20)
+[00:00:00 -1951.381156] FAST spr round 5 (radius: 20)
+[00:00:00 -1946.035092] FAST spr round 6 (radius: 20)
+[00:00:00 -1945.730325] FAST spr round 7 (radius: 20)
+[00:00:00 -1945.730312] Model parameter optimization (eps = 1.000000)
+[00:00:00 -1945.691012] SLOW spr round 1 (radius: 5)
+[00:00:01 -1945.690845] SLOW spr round 2 (radius: 10)
+[00:00:01 -1945.690845] SLOW spr round 3 (radius: 15)
+[00:00:01 -1945.690845] SLOW spr round 4 (radius: 20)
+[00:00:01 -1945.690845] SLOW spr round 5 (radius: 25)
+[00:00:01 -1945.690845] Model parameter optimization (eps = 0.100000)
+
+[00:00:01] ML tree search #1, logLikelihood: -1945.689211
+
+
+Optimized model parameters:
+
+   Partition 0: noname
+   Rate heterogeneity: NONE
+   Base frequencies (ML): 0.790168 0.209832 
+   Substitution rates (ML): 1.000000 
+
+
+Final LogLikelihood: -1945.689211
+
+AIC score: 4071.378422 / AICc score: 4211.378422 / BIC score: 4371.756849
+Free parameters (model + branch lengths): 90
+
+Best ML tree saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_FILTERED/T_5.raxml.bestTree
+Optimized model saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_FILTERED/T_5.raxml.bestModel
+
+Execution log saved to: /home/luise/master_thesis/output/raxml/MORPHOLOGICAL_FILTERED/T_5.raxml.log
+
+Analysis started: 11-Oct-2022 11:30:31 / finished: 11-Oct-2022 11:30:33
+
+Elapsed time: 1.431 seconds
+

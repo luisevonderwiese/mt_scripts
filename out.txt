@@ -7,14 +7,14 @@ Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!
 
 System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
 
-RAxML-NG was called at 05-Dec-2022 12:14:46 as follows:
+RAxML-NG was called at 12-Dec-2022 17:19:16 as follows:
 
-./../tools/raxml-ng/build/bin/raxml-ng --evaluate --msa data/language_alignments/morpho.phy --threads 2 --model BIN+G --tree data/trees/geo_science_route_duration_optimized_morpho.tree --prefix temp/foo
+./../tools/raxml-ng/build/bin/raxml-ng --evaluate --msa data/language_alignments/morpho.phy --threads 2 --model BIN+G --tree data/trees/geo_duration_optimized_morpho.tree --prefix temp/foo
 
 Analysis options:
   run mode: Evaluate tree likelihood
   start tree(s): user
-  random seed: 1670238886
+  random seed: 1670861956
   tip-inner: OFF
   pattern compression: ON
   per-rate scalers: OFF
@@ -41,34 +41,34 @@ Parallelization scheme autoconfig: 1 worker(s) x 2 thread(s)
 
 Parallel reduction/worker buffer size: 1 KB  / 0 KB
 
-[00:00:00] Loading user starting tree(s) from: data/trees/geo_science_route_duration_optimized_morpho.tree
+[00:00:00] Loading user starting tree(s) from: data/trees/geo_duration_optimized_morpho.tree
 [00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 130 / 1040
 [00:00:00] Data distribution: max. searches per worker: 1
 
 Evaluating 1 trees
 
-[00:00:00] Tree #1, initial LogLikelihood: -13169.796431
+[00:00:00] Tree #1, initial LogLikelihood: -4724.567416
 
-[00:00:00 -13169.796431] Initial branch length optimization
-[00:00:00 -13169.796431] Model parameter optimization (eps = 0.100000)
+[00:00:00 -4724.567416] Initial branch length optimization
+[00:00:00 -4704.951756] Model parameter optimization (eps = 0.100000)
 
-[00:00:00] Tree #1, final logLikelihood: -9952.705256
+[00:00:00] Tree #1, final logLikelihood: -4473.090771
 
 
 Optimized model parameters:
 
    Partition 0: noname
-   Rate heterogeneity: GAMMA (4 cats, mean),  alpha: 19.532873 (ML),  weights&rates: (0.250000,0.728828) (0.250000,0.912669) (0.250000,1.058168) (0.250000,1.300335) 
-   Base frequencies (ML): 0.782426 0.217574 
+   Rate heterogeneity: GAMMA (4 cats, mean),  alpha: 0.429626 (ML),  weights&rates: (0.250000,0.021210) (0.250000,0.203519) (0.250000,0.761447) (0.250000,3.013824) 
+   Base frequencies (ML): 0.731846 0.268154 
    Substitution rates (ML): 1.000000 
 
 
-Final LogLikelihood: -9952.705256
+Final LogLikelihood: -4473.090771
 
-AIC score: 20087.410511 / AICc score: 20137.692794 / BIC score: 20456.150626
+AIC score: 9128.181542 / AICc score: 9178.463825 / BIC score: 9496.921657
 Free parameters (model + branch lengths): 91
 
-WARNING: Best ML tree contains 40 near-zero branches!
+WARNING: Best ML tree contains 13 near-zero branches!
 
 Best ML tree with collapsed near-zero branches saved to: /home/luise/master_thesis/scripts/temp/foo.raxml.bestTreeCollapsed
 Best ML tree saved to: /home/luise/master_thesis/scripts/temp/foo.raxml.bestTree
@@ -76,7 +76,7 @@ Optimized model saved to: /home/luise/master_thesis/scripts/temp/foo.raxml.bestM
 
 Execution log saved to: /home/luise/master_thesis/scripts/temp/foo.raxml.log
 
-Analysis started: 05-Dec-2022 12:14:46 / finished: 05-Dec-2022 12:14:47
+Analysis started: 12-Dec-2022 17:19:16 / finished: 12-Dec-2022 17:19:16
 
-Elapsed time: 0.061 seconds
+Elapsed time: 0.098 seconds
 

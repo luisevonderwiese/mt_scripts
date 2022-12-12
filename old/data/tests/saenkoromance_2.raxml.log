@@ -1,0 +1,56 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 16-Nov-2022 14:32:31 as follows:
+
+./../raxml-ng/build/bin/raxml-ng --parse --msa ../data/language_alignments/saenkoromance.phy --model BIN+G --prefix ../output/raxml/tests/saenkoromance_2
+
+Analysis options:
+  run mode: Alignment parsing and compression
+  start tree(s): 
+  random seed: 1668605551
+  tip-inner: OFF
+  pattern compression: ON
+  per-rate scalers: OFF
+  site repeats: ON
+  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (auto)
+
+[00:00:00] Reading alignment from file: ../data/language_alignments/saenkoromance.phy
+[00:00:00] Loaded alignment with 43 taxa and 467 sites
+
+Alignment comprises 1 partitions and 220 patterns
+
+Partition 0: noname
+Model: BIN+FO+G4m
+Alignment sites / patterns: 467 / 220
+Gaps: 0.38 %
+Invariant sites: 7.07 %
+
+
+NOTE: Binary MSA file created: ../output/raxml/tests/saenkoromance_2.raxml.rba
+
+
+* Estimated memory requirements                : 2 MB
+
+* Recommended number of threads / MPI processes: 1
+
+Please note that numbers given above are rough estimates only. 
+Actual memory consumption and parallel performance on your system may differ!
+
+Alignment can be successfully read by RAxML-NG.
+
+
+Execution log saved to: /home/luise/master_thesis/output/raxml/tests/saenkoromance_2.raxml.log
+
+Analysis started: 16-Nov-2022 14:32:31 / finished: 16-Nov-2022 14:32:31
+
+Elapsed time: 0.022 seconds
+
