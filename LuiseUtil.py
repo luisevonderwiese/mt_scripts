@@ -29,7 +29,7 @@ indices_dir = 'data/indices/'
 
 
 #tree_space_name = 'space.trees'
-geo_tree_name = "geo_science.tree"
+geo_tree_name = "geo_duration.tree"
 cognate_tree_name = "cognate_ie_compatible.tree"
 cognate_ml_tree_name = "cognate_ml.tree"
 
