@@ -1,0 +1,101 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 23-Jan-2023 16:30:50 as follows:
+
+./../tools/raxml-ng/build/bin/raxml-ng --msa data/language_alignments/sim_geo_duration.phy --model BIN+G --prefix data/trees/sim_geo_pars100rand100bing --threads 2 --seed 2 --tree pars{100},rand{100}
+
+Analysis options:
+  run mode: ML tree search
+  start tree(s): random (100) + parsimony (100)
+  random seed: 2
+  tip-inner: OFF
+  pattern compression: ON
+  per-rate scalers: OFF
+  site repeats: ON
+  fast spr radius: AUTO
+  spr subtree cutoff: 1.000000
+  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (2 threads), thread pinning: OFF
+
+[00:00:00] Reading alignment from file: data/language_alignments/sim_geo_duration.phy
+[00:00:00] Loaded alignment with 46 taxa and 1000 sites
+
+Alignment comprises 1 partitions and 448 patterns
+
+Partition 0: noname
+Model: BIN+FO+G4m
+Alignment sites / patterns: 1000 / 448
+Gaps: 0.00 %
+Invariant sites: 28.40 %
+
+
+NOTE: Binary MSA file created: data/trees/sim_geo_pars100rand100bing.raxml.rba
+
+Parallelization scheme autoconfig: 2 worker(s) x 1 thread(s)
+
+Parallel reduction/worker buffer size: 1 KB  / 0 KB
+
+[00:00:00] Generating 100 random starting tree(s) with 46 taxa
+[00:00:00] Generating 100 parsimony starting tree(s) with 46 taxa
+[00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 448 / 3584
+[00:00:00] Data distribution: max. searches per worker: 100
+
+Starting ML tree search with 200 distinct starting trees
+
+[00:00:07] [worker #0] ML tree search #1, logLikelihood: -6977.186903
+[00:00:10] [worker #1] ML tree search #2, logLikelihood: -6977.186742
+[00:00:21] [worker #1] ML tree search #4, logLikelihood: -6978.776243
+[00:00:24] [worker #0] ML tree search #3, logLikelihood: -6977.188798
+[00:00:28] [worker #1] ML tree search #6, logLikelihood: -6977.186484
+[00:00:34] [worker #1] ML tree search #8, logLikelihood: -7008.890120
+[00:00:37] [worker #0] ML tree search #5, logLikelihood: -6977.186534
+[00:00:47] [worker #1] ML tree search #10, logLikelihood: -7008.889986
+[00:00:47] [worker #0] ML tree search #7, logLikelihood: -6977.188916
+[00:00:56] [worker #0] ML tree search #9, logLikelihood: -7013.624237
+[00:01:02] [worker #1] ML tree search #12, logLikelihood: -6977.189507
+[00:01:07] [worker #0] ML tree search #11, logLikelihood: -6977.186493
+[00:01:13] [worker #1] ML tree search #14, logLikelihood: -7008.889825
+[00:01:19] [worker #0] ML tree search #13, logLikelihood: -7008.889709
+[00:01:24] [worker #1] ML tree search #16, logLikelihood: -6977.186325
+[00:01:32] [worker #0] ML tree search #15, logLikelihood: -7008.890206
+[00:01:34] [worker #1] ML tree search #18, logLikelihood: -7008.890038
+[00:01:43] [worker #0] ML tree search #17, logLikelihood: -7008.890240
+[00:01:49] [worker #1] ML tree search #20, logLikelihood: -7008.890190
+[00:01:56] [worker #0] ML tree search #19, logLikelihood: -7008.890159
+[00:01:59] [worker #1] ML tree search #22, logLikelihood: -7008.893005
+[00:02:06] [worker #0] ML tree search #21, logLikelihood: -6977.188978
+[00:02:10] [worker #1] ML tree search #24, logLikelihood: -6977.189435
+[00:02:15] [worker #0] ML tree search #23, logLikelihood: -7008.889756
+[00:02:24] [worker #0] ML tree search #25, logLikelihood: -7008.889789
+[00:02:30] [worker #1] ML tree search #26, logLikelihood: -6977.187793
+[00:02:38] [worker #0] ML tree search #27, logLikelihood: -7008.892783
+[00:02:46] [worker #1] ML tree search #28, logLikelihood: -7008.890017
+[00:02:53] [worker #1] ML tree search #30, logLikelihood: -7008.724110
+[00:02:55] [worker #0] ML tree search #29, logLikelihood: -6980.636475
+[00:03:00] [worker #1] ML tree search #32, logLikelihood: -7008.889772
+[00:03:06] [worker #0] ML tree search #31, logLikelihood: -6978.776548
+[00:03:11] [worker #1] ML tree search #34, logLikelihood: -6977.186428
+[00:03:19] [worker #1] ML tree search #36, logLikelihood: -7008.889964
+[00:03:20] [worker #0] ML tree search #33, logLikelihood: -6977.189082
+[00:03:26] [worker #1] ML tree search #38, logLikelihood: -6977.188920
+[00:03:30] [worker #0] ML tree search #35, logLikelihood: -7008.890186
+[00:03:36] [worker #1] ML tree search #40, logLikelihood: -7008.890105
+[00:03:42] [worker #0] ML tree search #37, logLikelihood: -6977.188948
+[00:03:50] [worker #0] ML tree search #39, logLikelihood: -7008.889756
+[00:03:58] [worker #0] ML tree search #41, logLikelihood: -7008.890897
+[00:03:58] [worker #1] ML tree search #42, logLikelihood: -6978.776677
+[00:04:09] [worker #1] ML tree search #44, logLikelihood: -6977.186760
+[00:04:16] [worker #0] ML tree search #43, logLikelihood: -7008.890007
+[00:04:21] [worker #1] ML tree search #46, logLikelihood: -6977.186702
+[00:04:23] [worker #0] ML tree search #45, logLikelihood: -6977.186787
+
+ERROR: ERROR in SPR round (LIBPLL-2240): BL opt converged to a worse likelihood score by -0.000000004922185 units
+

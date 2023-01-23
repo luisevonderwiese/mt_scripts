@@ -68,7 +68,7 @@ def eliminate_topological_duplicates_ete(tree_set_names, out_file_name):
     with open(file_name, 'w+') as tree_file:
         for tree in unique_list:
             tree_file.write(tree.write()+"\n")
-    print(outfile + " created")
+    print(file_name + " created")
 
 
 
