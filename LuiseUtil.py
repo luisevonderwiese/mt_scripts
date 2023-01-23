@@ -50,12 +50,11 @@ def read_trees_from_ete(tree_set_names):
 #    return read_trees_from_ete([tree_space_name])
 
 
-def eliminate_topological_duplicates_ete(tree_set_name):
+def eliminate_topological_duplicates_ete(tree_set_names, out_file_name):
     unique_list = []
-    tree_set_ete = read_trees_from_ete([tree_set_name])
+    tree_set_ete = read_trees_from_ete(tree_set_names)
     i = 0
     for t1 in tree_set_ete:
-        print("tree " + str(i))
         unique = True
         for t2 in unique_list:
             rf = rf_distance_ete(t1, t2)
@@ -64,12 +63,12 @@ def eliminate_topological_duplicates_ete(tree_set_name):
                 break
         if unique:
             unique_list.append(t1)
-            print(str(len(unique_list)) + " unique trees")
         i = i + 1
-    file_name = tree_dir + rm_end(tree_set_name) + '_unique.trees'
+    file_name = tree_dir + out_file_name
     with open(file_name, 'w+') as tree_file:
         for tree in unique_list:
             tree_file.write(tree.write()+"\n")
+    print(outfile + " created")
 
 
 
