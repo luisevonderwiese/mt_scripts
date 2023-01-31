@@ -70,6 +70,21 @@ def eliminate_topological_duplicates_ete(tree_set_names, out_file_name):
             tree_file.write(tree.write()+"\n")
     print(file_name + " created")
 
+def set_neg_branches_zero_ete(tree):
+    for node in tree.traverse("postorder"):
+        if node.dist < 0:
+            node.dist = 0
+    return tree
+
+def set_neg_branches_zero(tree_set_name):
+    trees = read_trees_from_ete([tree_set_name])
+    for tree in trees:
+        tree = set_neg_branches_zero_ete(tree)
+    file_name = tree_dir + (".".join(tree_set_name.split(".")[:-1])) + ".nonneg.trees"
+    with open(file_name, 'w+') as tree_file:
+        for tree in trees:
+            tree_file.write(tree.write()+"\n")
+
 
 
 #def create_tree_space_from(tree_set_names):
