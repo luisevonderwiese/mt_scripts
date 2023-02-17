@@ -9,9 +9,9 @@ pipeline/.ipynb_checkpoints/
 pipeline/morph_alignments/
 pipeline/morph_parquets/
 pipeline/temp/
-uncertainties/dunnielex_multi
-uncertainties/dunnielex_nexus_wrong
-uncertainties/dunnliex_nexus_fixed
-uncertainties/output
-uncertainties/temp
-uncertainties/.ipynb_checkpoints
+uncertainties/dunnielex_multi/
+uncertainties/dunnielex_nexus_wrong/
+uncertainties/dunnliex_nexus_fixed/
+uncertainties/output/
+uncertainties/temp/
+uncertainties/.ipynb_checkpoints/
