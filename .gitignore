@@ -5,3 +5,6 @@ case_study_elena/data/weight_calibration/
 pipeline/training_data/
 pipeline/plots/
 pipeline/.ipynb_checkpoints/
+pipeline/morph_alignments/
+pipeline/morph_parquets/
+pipeline/temp/
