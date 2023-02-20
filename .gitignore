@@ -7,6 +7,7 @@ pipeline/training_data/
 pipeline/plots/
 pipeline/.ipynb_checkpoints/
 pipeline/morph_alignments/
+pipeline/language_alignments/
 pipeline/morph_parquets/
 pipeline/temp/
 uncertainties/dunnielex_multi/
