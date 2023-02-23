@@ -33,22 +33,36 @@ def eval_lh(tree, name, model):
     return lh
 
 
-def calculate_cross_lhs():
-    morph_data_multistate = pd.read_parquet("training_data/morph_data_multistate.parquet")
+def calculate_cross_lhs(multimodel):
+    if multimodel == "GTR":
+        morph_data_multistate = pd.read_parquet("training_data/morph_data_multistate.parquet")
+    elif multimodel == "MK":
+        morph_data_multistate = pd.read_parquet("training_data/morph_data_with_tree_characteristics_mk_model.parquet")
+    else:
+        print("Model " + multimodel + " does not exist.")
+        return
     morph_data_binarized = pd.read_parquet("training_data/morph_data_binarized.parquet")
     num_states_dict = read_num_states()
-    lh_file = open("temp/lhs.csv", "w+")
+    lh_file = open("temp/lhs_" + multimodel + ".csv", "w+")
     lh_file.write("alignment,eval_tree,model,lh\n")
     for index, row in morph_data_multistate.iterrows():
         multitree = Tree(row["newick_eval"])
         multiname = row['verbose_name']
+        if multiname not in num_states_dict:
+            continue
         print(multiname)
         num_states = num_states_dict[multiname]
-        multimodel = "MULTI" + str(num_states) + "_GTR"
+        if multimodel == "GTR":
+            concrete_model = "MULTI" + str(num_states) + "_GTR"
+        else:
+            concrete_model = "MULTI" + str(num_states) + "_MK"
         binname = multiname.split('.')[0] + ".BIN.phy"
-        bintree =  Tree(morph_data_binarized.loc[(morph_data_binarized['verbose_name'] == binname)].iloc[0]["newick_eval"])
+        bin_sub_df = morph_data_binarized.loc[(morph_data_binarized['verbose_name'] == binname)]
+        #if (len(bin_sub_df) == 0):
+        #    continue
+        bintree =  Tree(bin_sub_df.iloc[0]["newick_eval"])
         bamt_lh =  eval_lh(multitree, binname, "BIN")
         lh_file.write(binname + "," + multiname + ",BIN," + str(bamt_lh) + "\n")
-        mabt_lh = eval_lh(bintree, multiname, multimodel)
-        lh_file.write(multiname + "," + binname + "," + multimodel + "," + str(mabt_lh) + "\n")
-calculate_cross_lhs()
+        mabt_lh = eval_lh(bintree, multiname, concrete_model)
+        lh_file.write(multiname + "," + binname + "," + concrete_model + "," + str(mabt_lh) + "\n")
+calculate_cross_lhs("MK")
