@@ -65,4 +65,32 @@ def calculate_cross_lhs(multimodel):
         lh_file.write(binname + "," + multiname + ",BIN," + str(bamt_lh) + "\n")
         mabt_lh = eval_lh(bintree, multiname, concrete_model)
         lh_file.write(multiname + "," + binname + "," + concrete_model + "," + str(mabt_lh) + "\n")
-calculate_cross_lhs("MK")
+
+def calculate_cross_lhs_mk_gtr():
+    morph_data_gtr = pd.read_parquet("training_data/morph_data_multistate.parquet")
+    morph_data_mk = pd.read_parquet("training_data/morph_data_with_tree_characteristics_mk_model.parquet")
+    num_states_dict = read_num_states()
+    lh_file = open("temp/lhs_mk_gtr.csv", "w+")
+    lh_file.write("alignment,eval_tree,model,lh\n")
+    for index, row in morph_data_gtr.iterrows():
+        gtr_tree = Tree(row["newick_eval"])
+        name = row['verbose_name']
+        if name not in num_states_dict:
+            continue
+        if name=='20361_0.phy':
+            continue
+        print(name)
+        num_states = num_states_dict[name]
+        gtr_model = "MULTI" + str(num_states) + "_GTR"
+        mk_model = "MULTI" + str(num_states) + "_MK"
+        mk_sub_df = morph_data_mk.loc[(morph_data_mk['verbose_name'] == name)]
+        #if (len(bin_sub_df) == 0):
+        #    continue
+        mk_tree =  Tree(mk_sub_df.iloc[0]["newick_eval"])
+        magt_lh =  eval_lh(gtr_tree, name, mk_model)
+        lh_file.write(name + "," + name + "," + mk_model + "," + str(magt_lh) + "\n")
+        gamt_lh = eval_lh(mk_tree, name, gtr_model)
+        lh_file.write(name + "," + name + "," + gtr_model + "," + str(gamt_lh) + "\n")
+
+#calculate_cross_lhs("MK")
+calculate_cross_lhs_mk_gtr()
