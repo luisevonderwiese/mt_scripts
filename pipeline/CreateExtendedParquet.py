@@ -259,9 +259,9 @@ def extend_df(data_type):
     data_bin = add_cross_data(data_bin, data_type, "BIN", "GTR")
     data_bin = add_cross_data(data_bin, data_type, "BIN", "MK")
 
-    #data_gtr = add_aic_scores(data_gtr, data_type, "GTR")
-    #data_mk = add_aic_scores(data_mk, data_type, "MK")
-    #data_bin = add_aic_scores(data_bin, data_type, "BIN")
+    data_gtr = add_aic_scores(data_gtr, data_type, "GTR")
+    data_mk = add_aic_scores(data_mk, data_type, "MK")
+    data_bin = add_aic_scores(data_bin, data_type, "BIN")
 
     df = merge_dfs(data_bin, data_gtr, data_mk)
     df = add_rf_data(df, data_type)
