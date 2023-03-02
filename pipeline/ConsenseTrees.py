@@ -3,7 +3,8 @@ import pandas as pd
 import shutil
 
 
-def get_eval_trees(d):
+def calculate_consense_trees(data_type, model):
+    d = "parquets/" + data_type + "/" + model
     with os.scandir(d) as it:
         for entry in it:
             if not entry.is_dir():
@@ -22,4 +23,4 @@ def get_eval_trees(d):
             os.system("./raxml-ng --redo --consense --tree " + tree_path + " --prefix " + os.path.join(dir_path, "consense"))
 
 
-get_eval_trees("morph_parquets/multi/MK")
+calculate_consense_trees("morph", "MK")
