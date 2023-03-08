@@ -1,0 +1,50 @@
+
+
+This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 219 columns
+
+Proportion of gaps and completely undetermined characters in this alignment: 3.12%
+
+RAxML experimental site-specfific phylogenetic placement bias analysis algorithm
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heterogeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 219
+Name: No Name Provided
+DataType: BINARY/MORPHOLOGICAL
+Substitution Matrix: Uncorrected
+
+
+
+
+RAxML was called as follows:
+
+./../../tools/standard-RAxML-master/raxmlHPC-AVX -f S -t data/trees/geo_duration.tree -m BINGAMMA -s data/language_alignments/morpho_filtered_indsToUse.phy -n congruence 
+
+
+Likelihood of comprehensive tree -3890.244615
+
+Sliding window size: 100
+
+Pruning taxon Number 1 [It]
