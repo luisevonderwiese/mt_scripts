@@ -3,20 +3,24 @@ import pandas as pd
 from ete3 import Tree
 
 
-def read_num_states():
-    lines = open("temp/max_states.csv", 'r').read().split("\n")[1:-1]
+def read_num_states(data_type):
+    lines = open("temp/" + data_type + "/max_states.csv", 'r').read().split("\n")[1:-1]
     num_states = {}
     for line in lines:
         data = line.split(",")
         num_states[data[0]] = int(data[1])
     return num_states
 
-def eval_lh(tree, name, model):
+def eval_lh(data_type, tree, name, model):
     tree.write(outfile="temp.tree")
-    if model.startswith("BIN"):
-        alignment_name = "morph_alignments/bin/" + name
-    else:
-        alignment_name = "morph_alignments/multi/" + name
+    if data_type == "morph":
+        alignment_name = "alignments/morph/"
+        if model.startswith("BIN"):
+            alignment_name += "/bin/" + name.split('.')[0] + '.BIN.phy'
+        else:
+            alignment_name += "/multi/" + name
+    if data_type == "lang":
+        print("Alignment names for lang!")
     os.system('./../../tools/raxml-ng/build/bin/raxml-ng --evaluate --msa ' + alignment_name +
             ' --threads 2 --model ' + model + ' --tree temp.tree --prefix foo --nofiles' +
               " --opt-branches off " + '> out.txt')
@@ -26,71 +30,68 @@ def eval_lh(tree, name, model):
     for line in lines:
         if(line.startswith('Final LogLikelihood:')):
             lh = float(line.split(" ")[2].strip())
-    #if lh == 0:
-    #    print(open("out.txt", "r").read())
+    if lh == 1:
+        print(open("out.txt", "r").read())
     os.remove("out.txt")
     os.remove("temp.tree")
     return lh
 
+# !! maybe needs to be adapted for language
+def read_df_for_model(data_type, model):
+    if data_type == "morph":
+        d = "training_data/morph"
+        if model == "BIN":
+            df = pd.read_parquet(os.path.join(d, "binarized.parquet"))
+            names = []
+            for index, row in df.iterrows():
+                names.append(row['verbose_name'].split('.')[0] + '.phy')
+            df['verbose_name'] = names
+        if model == "GTR":
+            df = pd.read_parquet(os.path.join(d, "MULTI_GTR.parquet"))
+        if model == "MK":
+            df = pd.read_parquet(os.path.join(d, "full_MK.parquet"))
+    elif data_type == "lang":
+        print("Adapt training data paths for lang!")
+    return df
 
-def calculate_cross_lhs(multimodel):
-    if multimodel == "GTR":
-        morph_data_multistate = pd.read_parquet("training_data/morph_data_multistate.parquet")
-    elif multimodel == "MK":
-        morph_data_multistate = pd.read_parquet("training_data/morph_data_with_tree_characteristics_mk_model.parquet")
-    else:
-        print("Model " + multimodel + " does not exist.")
-        return
-    morph_data_binarized = pd.read_parquet("training_data/morph_data_binarized.parquet")
-    num_states_dict = read_num_states()
-    lh_file = open("temp/lhs_" + multimodel + ".csv", "w+")
-    lh_file.write("alignment,eval_tree,model,lh\n")
-    for index, row in morph_data_multistate.iterrows():
-        multitree = Tree(row["newick_eval"])
-        multiname = row['verbose_name']
-        if multiname not in num_states_dict:
-            continue
-        print(multiname)
-        num_states = num_states_dict[multiname]
-        if multimodel == "GTR":
-            concrete_model = "MULTI" + str(num_states) + "_GTR"
-        else:
-            concrete_model = "MULTI" + str(num_states) + "_MK"
-        binname = multiname.split('.')[0] + ".BIN.phy"
-        bin_sub_df = morph_data_binarized.loc[(morph_data_binarized['verbose_name'] == binname)]
-        #if (len(bin_sub_df) == 0):
-        #    continue
-        bintree =  Tree(bin_sub_df.iloc[0]["newick_eval"])
-        bamt_lh =  eval_lh(multitree, binname, "BIN")
-        lh_file.write(binname + "," + multiname + ",BIN," + str(bamt_lh) + "\n")
-        mabt_lh = eval_lh(bintree, multiname, concrete_model)
-        lh_file.write(multiname + "," + binname + "," + concrete_model + "," + str(mabt_lh) + "\n")
+def get_concrete_model(model, num_states):
+    if model == "BIN":
+        return model
+    if model == "GTR":
+        return "MULTI" + str(num_states) + "_GTR"
+    if model == "MK":
+        return "MULTI" + str(num_states) + "_MK"
 
-def calculate_cross_lhs_mk_gtr():
-    morph_data_gtr = pd.read_parquet("training_data/morph_data_multistate.parquet")
-    morph_data_mk = pd.read_parquet("training_data/morph_data_with_tree_characteristics_mk_model.parquet")
-    num_states_dict = read_num_states()
-    lh_file = open("temp/lhs_mk_gtr.csv", "w+")
-    lh_file.write("alignment,eval_tree,model,lh\n")
-    for index, row in morph_data_gtr.iterrows():
-        gtr_tree = Tree(row["newick_eval"])
+def calculate_cross_lhs(data_type, model1, model2, outfile):
+    df1 = read_df_for_model(data_type, model1)
+    df2 = read_df_for_model(data_type, model2)
+    num_states_dict = read_num_states(data_type)
+    for i, row in df1.iterrows():
         name = row['verbose_name']
         if name not in num_states_dict:
             continue
-        if name=='20361_0.phy':
-            continue
         print(name)
         num_states = num_states_dict[name]
-        gtr_model = "MULTI" + str(num_states) + "_GTR"
-        mk_model = "MULTI" + str(num_states) + "_MK"
-        mk_sub_df = morph_data_mk.loc[(morph_data_mk['verbose_name'] == name)]
-        #if (len(bin_sub_df) == 0):
-        #    continue
-        mk_tree =  Tree(mk_sub_df.iloc[0]["newick_eval"])
-        magt_lh =  eval_lh(gtr_tree, name, mk_model)
-        lh_file.write(name + "," + name + "," + mk_model + "," + str(magt_lh) + "\n")
-        gamt_lh = eval_lh(mk_tree, name, gtr_model)
-        lh_file.write(name + "," + name + "," + gtr_model + "," + str(gamt_lh) + "\n")
+        concrete_model1 = get_concrete_model(model1, num_states)
+        concrete_model2 = get_concrete_model(model1, num_states)
+        df2_sub = df2.loc[(df2['verbose_name'] == name)]
+        if (len(df2_sub) == 0):
+            print(name + " not in second df!")
+        tree1 = Tree(row["newick_eval"])
+        tree2 = Tree(df2_sub.iloc[0]["newick_eval"])
+        lh_t1_a2 = eval_lh(data_type, tree1, name, concrete_model2)
+        outfile.write(name + "," + model1  + "," + model2 + "," + str(lh_t1_a2) + "\n")
+        lh_t2_a1 = eval_lh(data_type, tree2, name, concrete_model1)
+        outfile.write(name + "," + model2  + "," + model1 + "," + str(lh_t2_a1) + "\n")
 
-#calculate_cross_lhs("MK")
-calculate_cross_lhs_mk_gtr()
+def calculate_cross_all_cross_lhs(data_type):
+    outfile = open("temp/" + data_type + "/lhs.csv", "w+")
+    outfile.write("name,tree_model,eval_model,lh\n")
+    calculate_cross_lhs(data_type, "BIN", "GTR", outfile)
+    calculate_cross_lhs(data_type, "BIN", "MK", outfile)
+    calculate_cross_lhs(data_type, "GTR", "MK", outfile)
+
+
+calculate_cross_all_cross_lhs("morph")
+
+

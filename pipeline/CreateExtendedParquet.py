@@ -41,55 +41,14 @@ def read_consensus_trees(data_type, model):
             consensus_trees[name] = tree
     return consensus_trees
 
-#Original model: Under this model a best tree was calculated with 100 tree searches
-#Cross model: Now determine the likelihood of the best tree under this model
-def cross_data_csv(data_type):
-    out_file = open("temp/" + data_type + "/lhs/all.csv", "w+")
-    out_file.write("name,original_model,cross_model,lh\n")
-    lines = open("temp/" + data_type + "/lhs/BIN_GTR.csv", "r").read().split("\n")[1:-1]
-    for line in lines:
-        data = line.split(",")
-        if data[0].endswith(".BIN.phy"):
-            cross_model = "BIN"
-            original_model="GTR"
-            name = data[1]
-        else:
-            cross_model = "GTR"
-            original_model="BIN"
-            name = data[0]
-        out_file.write(name + "," + original_model  + "," + cross_model + "," + data[3] + "\n")
-    lines = open("temp/" + data_type + "/lhs/BIN_MK.csv", "r").read().split("\n")[1:-1]
-    for line in lines:
-        data = line.split(",")
-        if data[0].endswith(".BIN.phy"):
-            cross_model = "BIN"
-            original_model="MK"
-            name = data[1]
-        else:
-            cross_model = "MK"
-            original_model="BIN"
-            name = data[0]
-        out_file.write(name + "," + original_model  + "," + cross_model + "," + data[3] + "\n")
-    lines = open("temp/" + data_type + "/lhs/GTR_MK.csv", "r").read().split("\n")[1:-1]
-    for line in lines:
-        data = line.split(",")
-        if data[2].endswith("GTR"):
-            cross_model = "GTR"
-            original_model="MK"
-            name = data[0]
-        else:
-            cross_model = "MK"
-            original_model="GTR"
-            name = data[0]
-        out_file.write(name + "," + original_model  + "," + cross_model + "," + data[3] + "\n")
 
 
 
 #The column cross_lh_x contains the likelihood of the best tree found under the tree model evalut
 def add_cross_data(df, data_type, eval_model, tree_model):
-    lhs_df = pd.read_csv("temp/" + data_type + "/lhs/all.csv")
-    lhs_df = lhs_df[lhs_df["original_model"] == tree_model]
-    lhs_df = lhs_df[lhs_df["cross_model"] == eval_model]
+    lhs_df = pd.read_csv("temp/" + data_type + "/lhs.csv")
+    lhs_df = lhs_df[lhs_df["tree_model"] == tree_model]
+    lhs_df = lhs_df[lhs_df["eval_model"] == eval_model]
     d = {}
     for idx, row in lhs_df.iterrows():
         d[row["name"]] = float(row["lh"])
@@ -104,7 +63,7 @@ def add_cross_data(df, data_type, eval_model, tree_model):
             cross_lhs.append(cross_lh)
             diffs.append(diff)
         else:
-            print("For " + name + " no cross evaluation with original model " + tree_model + " and cross model " +eval_model)
+            print("For " + name + " no cross evaluation with tree model " + tree_model + " and eval model " +eval_model)
             cross_lhs.append(float("nan"))
             diffs.append(float("nan"))
     df["cross_llh_" + tree_model] = cross_lhs
@@ -269,6 +228,5 @@ def extend_df(data_type):
     df = add_max_states(df, data_type)
     df.to_parquet("training_data/" + data_type + "/extended.parquet")
 
-cross_data_csv("morph")
 extend_df("morph")
 #

@@ -4,7 +4,10 @@ import shutil
 
 
 def calculate_consense_trees(data_type, model):
-    d = "parquets/" + data_type + "/" + model
+    if model == "BIN":
+        d = "parquets/" + data_type + "/" + model
+    else:
+        d = "parquets/" + data_type + "/MULTI/" + model
     with os.scandir(d) as it:
         for entry in it:
             if not entry.is_dir():
