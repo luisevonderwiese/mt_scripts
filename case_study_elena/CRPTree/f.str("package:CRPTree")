@@ -1,0 +1,90 @@
+
+		Information on package ‘CRPTree’
+
+Description:
+
+Package:            CRPTree
+Title:              Phylogenetic association test based on a Chinese
+                    Restaurant Process-esque model
+Version:            0.0.0.9000
+Authors@R:          person("Julie", "Zhang", , "jyz27@stanford.edu",
+                    role = c("aut", "cre"))
+Description:        What the package does (one paragraph).
+License:            GPL (>= 3)
+Encoding:           UTF-8
+Roxygen:            list(markdown = TRUE)
+RoxygenNote:        7.1.2
+Imports:            apTreeshape, phangorn, castor, TreeTools, phytools,
+                    parallel, arrangements, stepR, stats, R.utils,
+                    ggplot2
+Suggests:           knitr, rmarkdown
+VignetteBuilder:    knitr
+BuildVignettes:     true
+LazyData:           true
+Depends:            R (>= 2.10), ape
+RemoteType:         github
+RemoteHost:         api.github.com
+RemoteRepo:         CRPTree
+RemoteUsername:     jyzhang27
+RemoteRef:          HEAD
+RemoteSha:          4e09625e540928e2b3fe886c01f6dbf08968d70f
+GithubRepo:         CRPTree
+GithubUsername:     jyzhang27
+GithubRef:          HEAD
+GithubSHA1:         4e09625e540928e2b3fe886c01f6dbf08968d70f
+NeedsCompilation:   no
+Packaged:           2023-03-14 11:19:51 UTC; root
+Author:             Julie Zhang [aut, cre]
+Maintainer:         Julie Zhang <jyz27@stanford.edu>
+Built:              R 4.2.2; ; 2023-03-14 11:19:52 UTC; unix
+
+Index:
+
+compute_mu_hat          Estimates mu_hat for a tree
+count_partial_labels    Count the number of partial labelings on a
+                        given tree shape
+count_ranked_pl_trees   Count the number of ranked partially labeled
+                        tree shapes with N tips and B blue
+count_same_attachments
+                        This function computes the number of same
+                        attachments for the given tree
+create_tree_attachments
+                        Construct tree from a sequence of attachments
+                        and type of attachments
+crp_tables_to_colors    Find the attachments and color type for a list
+                        of tables
+crp_tree_power          Compute the power of the testing methods
+                        conditional on a given tree shape
+ex_yfv                  Yellow Fever Virus posterior trees
+expected_value_function
+                        Compute expected value of S for a tree
+                        generated under the CRP-TREE model
+get_crp_tables          Find the "tables" associated with a CRP-TREE
+                        tree
+get_mle_1tree           Compute the MLE of alpha for a ranked, planar,
+                        partially labeled tree
+get_mle_trees           Computes the MLE of alpha for a list of ranked,
+                        planar, partially labeled trees
+lrt_1tree               Applies LRT for a ranked, planar, partially
+                        labeled tree
+lrt_many_trees          Applies LRT for a list of ranked, planar,
+                        partially labeled trees
+one_tree_all_methods    Computes multiple p-values for phylogenetic
+                        association testing
+pcrp_tree               Calculates the probability of a ranked, planar,
+                        partially labeled tree shape
+plot_crp_tree           Plot a tree with two categories of labelings
+pnull_tree              This function computes the conditional
+                        probability of partially labeled tree shape
+posterior_trees_bats    Applies BaTS on a posterior distribution of
+                        trees
+posterior_trees_pval    Computes p-values for a posterior distribution
+                        of trees
+process_tree            Process a tree into a workable format
+rcrp_tree               Generate a tree according to the CRP-TREE model
+simulate_S_grid         Simulates S for a grid of planarities and
+                        labels
+simulate_S_observed     Simulate observed distribution of S for a tree
+simulate_S_tree_null    Simulate null distribution of S for a tree
+simulate_mu_hat_tree    Simulate null distribution of mu_hat
+
