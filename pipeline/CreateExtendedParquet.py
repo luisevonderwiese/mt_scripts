@@ -198,6 +198,7 @@ def add_max_states(df, data_type):
     df["max_states"] = column
     return df
 
+
 def extend_df(data_type):
     data_gtr = pd.read_parquet("training_data/" + data_type + "/MULTI_GTR.parquet")
     data_mk = pd.read_parquet("training_data/" + data_type + "/full_MK.parquet")
@@ -210,6 +211,12 @@ def extend_df(data_type):
         for index, row in data_bin.iterrows():
             names.append(row['verbose_name'].split('.')[0] + '.phy')
         data_bin['verbose_name'] = names
+
+        annotations = pd.read_parquet("training_data/morph/treebase_references.parquet")[["verbose_name", "TreeBase_reference", "publication_year"]]
+        data_gtr = data_gtr.merge(annotations, on="verbose_name", how="inner")
+        data_mk = data_gtr.merge(annotations, on="verbose_name", how="inner")
+        data_bin = data_gtr.merge(annotations, on="verbose_name", how="inner")
+
 
     data_gtr = add_cross_data(data_gtr, data_type, "GTR", "BIN")
     data_gtr = add_cross_data(data_gtr, data_type, "GTR", "MK")
