@@ -1,0 +1,18 @@
+lexibank_name,phlorest_name,same_taxa_number,same,taxa
+dyenindoeuropean.BIN.cc.phy,gray_and_atkinson2003.BIN.cc.phy,0 (dye larger),(0)
+grollemundbantu.BIN.cc.phy,koile_et_al2022.BIN.cc.phy,0 (grollemund larger),(0)
+grollemundbantu.BIN.cc.phy,grollemund_et_al2015.BIN.cc.phy,1,1
+kitchensemitic.BIN.cc.phy,kitchen_et_al2009.BIN.cc.phy,1,1
+powerma.BIN.cc.phy,power_et_al2020.BIN.cc.phy,1,1
+birchallchapacuran.BIN.cc.phy,birchall_et_al2016.BIN.cc.phy,1,1
+gerarditupi.BIN.cc.phy,gerardi_and_reichert2021.BIN.cc.phy,1,0
+utoaztecan.BIN.cc.phy,greenhill_et_al_subm.BIN.cc.phy,0 (uto larger),(0)
+dravlex.BIN.cc.phy,kolipakam_et_al2018.BIN.cc.phy,1,1
+leekoreanic.BIN.cc.phy,lee2015.BIN.cc.phy,1,1
+leejaponic.BIN.cc.phy,lee_and_hasegawa2011.BIN.cc.phy,1,1
+leeainu.BIN.cc.phy,lee_and_hasegawa2013.BIN.cc.phy,1,1
+nagarajakhasian.BIN.cc.phy,nagaraja_et_al2013.BIN.cc.phy,1,1
+robinsonap.BIN.cc.phy,robinson_and_holton2012.BIN.cc.phy,1,1
+sagartst.BIN.cc.phy,sagart_et_al2019.BIN.cc.phy,1,(0) really no matching possible
+savelyevturkic.BIN.cc.phy,savelyev_and_robbeets2020.BIN.cc.phy,1,1
+mcelhanonhuon.BIN.cc.phy,greenhill2015.BIN.cc.phy,1,1
