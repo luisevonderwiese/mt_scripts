@@ -26,6 +26,7 @@ weight_calibration_dir = 'data/weight_calibration/'
 site_congruence_dir = 'data/site_congruence/'
 lh_dir = 'data/lh/'
 indices_dir = 'data/indices/'
+deltas_dir = "data/trait_association/delta_statistics/"
 
 
 #tree_space_name = 'space.trees'
@@ -273,6 +274,9 @@ def best_tree_file_name(alignment_name, start_trees = ""):
     else:
         return tree_dir + rm_end(alignment_name) + "_" + start_trees + ".raxml.bestTree"
 
+def deltas_file_name(tree_name, alignment_name):
+    return deltas_dir + rm_end(alignment_name) + '_' + rm_end(tree_name)  + '.deltas'
+
 
 def read_lhs(tree_set_name, alignment_name, optimize):
     lhs = []
@@ -326,6 +330,11 @@ def read_ml_trees(alignment_name, start_trees = ""):
 def read_best_tree(alignment_name, start_trees = ""):
     tree_file = open(best_tree_file_name(alignment_name, start_trees))
     return Tree(tree_file.readlines()[0][:-1])
+
+
+def read_deltas(alignment_name, tree_name):
+    deltas_file = open(deltas_file_name(alignment_name, tree_name))
+    return [float(line) for line in deltas_file.readlines()]
 
 def calculate_lhs_raxml(tree_set_name, alignment_name, optimize = False):
     tree_set = read_trees_from_ete([tree_set_name])
@@ -473,8 +482,10 @@ def get_best_tree(alignment_name, start_trees = ""):
     return read_best_tree(alignment_name, start_trees)
 
 
-
-
+def get_deltas(tree_name, alignment_name):
+    if not os.path.isfile(deltas_file_name(alignment_name, tree_name)):
+        print("Deltas must be calculated in R!")
+    return read_deltas(alignment_name, tree_name)
 
 def average_branch_length(tree_set):
     avg = 0
@@ -522,6 +533,7 @@ def rf_dist_matrix(tree_dict):
                 continue
             rf_str = str(rf_distance_ete(tree_dict[name1], tree_dict[name2]))
             print("RF distance of " + name1 + " to " + name2 + ": " + rf_str)
+
 
 
 
