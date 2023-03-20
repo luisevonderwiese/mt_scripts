@@ -84,8 +84,7 @@ apply.crp.method <- function(tree.name) {
 
 }
 
-#apply.crp.method("IE2011_Cognates_rel_ANNOT.nwk")
-apply.crp.method("geo_duration.tree")
+apply.crp.method("cognate_ie_compatible.tree.rooted.tree")
 
 
 
