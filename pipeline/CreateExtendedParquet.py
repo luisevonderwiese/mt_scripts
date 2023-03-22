@@ -41,7 +41,11 @@ def read_consensus_trees(data_type, model):
             consensus_trees[name] = tree
     return consensus_trees
 
-
+def add_pattern_proportion(df):
+    pp = []
+    for index, row in df.iterrows():
+        pp.append(row['num_patterns']/row['num_sites'])
+    df["pattern_proportion"] = pp
 
 
 #The column cross_lh_x contains the likelihood of the best tree found under the tree model evalut
@@ -203,6 +207,7 @@ def extend_df(data_type):
     data_gtr = pd.read_parquet("training_data/" + data_type + "/MULTI_GTR.parquet")
     data_mk = pd.read_parquet("training_data/" + data_type + "/full_MK.parquet")
     data_bin = pd.read_parquet("training_data/" + data_type + "/binarized.parquet")
+
     if data_type == "morph":
         #remove binary datasets
         data_mk = data_mk.groupby(data_mk.state_type).get_group("multistate")
@@ -214,9 +219,13 @@ def extend_df(data_type):
 
         annotations = pd.read_parquet("training_data/morph/treebase_references.parquet")[["verbose_name", "TreeBase_reference", "publication_year"]]
         data_gtr = data_gtr.merge(annotations, on="verbose_name", how="inner")
-        data_mk = data_gtr.merge(annotations, on="verbose_name", how="inner")
-        data_bin = data_gtr.merge(annotations, on="verbose_name", how="inner")
+        data_mk = data_mk.merge(annotations, on="verbose_name", how="inner")
+        data_bin = data_bin.merge(annotations, on="verbose_name", how="inner")
 
+
+    add_pattern_proportion(data_gtr)
+    add_pattern_proportion(data_mk)
+    add_pattern_proportion(data_bin)
 
     data_gtr = add_cross_data(data_gtr, data_type, "GTR", "BIN")
     data_gtr = add_cross_data(data_gtr, data_type, "GTR", "MK")

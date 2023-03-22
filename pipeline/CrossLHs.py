@@ -73,7 +73,7 @@ def calculate_cross_lhs(data_type, model1, model2, outfile):
         print(name)
         num_states = num_states_dict[name]
         concrete_model1 = get_concrete_model(model1, num_states)
-        concrete_model2 = get_concrete_model(model1, num_states)
+        concrete_model2 = get_concrete_model(model2, num_states)
         df2_sub = df2.loc[(df2['verbose_name'] == name)]
         if (len(df2_sub) == 0):
             print(name + " not in second df!")
