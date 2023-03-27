@@ -11,4 +11,5 @@ filename=dunnielex_multi/$i.phy
 prefix=output/$i
 ./raxml-ng --msa $filename --model BIN --prefix $prefix --threads 2 --seed 2
 
+#./raxml-ng --msa dunnielex.catg --model BIN --prefix output/catg --threads 2 --seed 2 --prob-msa on
 
