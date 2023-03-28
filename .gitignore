@@ -10,6 +10,7 @@ pipeline/alignments/
 pipeline/parquets/
 pipeline/temp/
 pipeline/raxml-ng
+
 uncertainties/dunnielex_multi/
 uncertainties/dunnielex_nexus_wrong/
 uncertainties/dunnliex_nexus_fixed/
@@ -17,4 +18,18 @@ uncertainties/output/
 uncertainties/temp/
 uncertainties/ref_trees/
 uncertainties/qdist
+uncertainties/raxml-ng
 uncertainties/.ipynb_checkpoints/
+
+database_conversion/alignment_downloads/
+database_conversion/alignment_uploads/
+database_conversion/alignment_backup/
+database_conversion/raw/
+database_conversion/conversion_inputs/
+database_conversion/duplicate_check/
+database_conversion/temp/
+database_conversion/.ipynb_checkpoints/
+database_conversion/unused/alignments/
+database_conversion/catg/
+database_conversion/metadata/
+
