@@ -3,6 +3,12 @@ case_study_elena/data/siteLH/
 case_study_elena/data/site_congruence/
 case_study_elena/data/weight_calibration/
 case_study_elena/.ipynb_checkpoints
+case_study_elena/data/trait_association/delta_statistics/
+case_study_elena/delta_statistics/deltas/
+case_study_elena/delta_statistics/rd_output/
+case_study_elena/delta_statistics/rerooted_trees/
+
+
 pipeline/training_data/
 pipeline/plots/
 pipeline/.ipynb_checkpoints/

@@ -4,6 +4,7 @@
 
 library("ape")
 library(R.utils)
+library(tools)
 source("code.R")
 
 #SOME PARAMETERS... 
@@ -25,18 +26,27 @@ apply.delta.statistics <- function(tree.name) {
     deltas = c()
     for (col in 1:ncol(datamat)) {
         trait<-datamat[, col]
-        deltaA <- withTimeout({delta(trait,tree,lambda0,se,sim,thin,burn)}, timeout = 30, onTimeout = "warning")
+        deltaA <- withTimeout({delta(trait,tree,lambda0,se,sim,thin,burn)}, timeout = 10, onTimeout = "warning")
         if (is.null(deltaA)){
           deltaA<--1
+          print(trait)
         }
         #deltaA <- delta(trait,tree,lambda0,se,sim,thin,burn)
         print(deltaA)
         deltas = append(deltas, deltaA)
     }
-    write.table(deltas, file="deltas.csv", sep=",", col.names=F, row.names=F, quote=F)
+    tree.name.only = file_path_sans_ext(basename(tree.name))
+    file.name = paste("deltas/", tree.name.only, "_morpho_filtered_indsToUse.deltas", sep = "")
+    write.table(deltas, file=file.name, sep=",", col.names=F, row.names=F, quote=F)
 
 
 }
 
-apply.delta.statistics("cognate_ie_compatible.tree.rooted.tree")
+
+#files <- list.files(path="rerooted_trees/geo_duration/inner_nodes/", pattern="*.tree", full.names=TRUE, recursive=FALSE)
+#lapply(files, apply.delta.statistics)
+apply.delta.statistics("rerooted_trees/cognate_ie_compatible/cognate_ie_compatible_rd.tree")
+apply.delta.statistics("rerooted_trees/geo_duration/geo_duration_rd.tree")
+
+
 
