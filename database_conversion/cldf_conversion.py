@@ -168,10 +168,10 @@ def write_bin_catg(df, outfile):
                     col += "0"
                     # missing data
                     if value_counts[language] == 0:
-                        one_prob = 1 / len(values)
+                        probs.append("1.0,1.0")
+                        continue
                         #alternative:
-                        #probs.append("1.0,1.0")
-                        #continue
+                        #one_prob = 1 / len(values)
                     else:
                         one_prob = 0.0
                 zero_prob = 1.0 - one_prob
