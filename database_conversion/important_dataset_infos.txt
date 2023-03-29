@@ -1,0 +1,72 @@
+Datasets not converted to binary alignments:
+- Datasets in cldf without forms.csv + cogantes.csv and without values.csv
+- beidazihui und wanghmongmien: cognates.csv is empty
+
+CLLD:
+- Apics: values.csv exists but in bad format
+- Conception-data: About concepts and wether they exist in languages, format unusual
+- CDS: Non-binary cognate data spread over files, cognate-classes seem missing
+- DEV: Data seems to be data/phoible.csv, multistate matrix, but taxa are sounds of a language, no idea how to make an alignment
+- Dictionaraia: cldf/entries.csv lists word in languages, not idea how to put into an alignment
+- Glottolog: Metadata about languages, alignment makes no sense
+- IDS: Cognate data, but cognates.csv i.e. Cognate Classes Missing
+- Tsammalex: names.csv and categories.csv exist, but for binarization, additional information required
+- For the other entries in CLLD I could not even find any data for download
+
+- Autotyp: values.csv exists but in bad format
+- Carling_MS: Seems to contain same information as DiACL, however binarization unclear
+- Carling_Lexical: pone.0223588.s002 contains non-binary cognate data, however cognate classes seem to be missing
+- Carling_Gender: Unstructured Appendix pdf, no idea
+- pnas: pairwise matching between languages, binarization unclear
+
+
+Unused binary alignments:
+- Unusually huge alignment: (cldf_huge)
+    (num_taxa: usually < 100, everything > 200 absolute outlier)
+    (num_sites: ususally < 1200, alles > 5000 absolute outlier)
+    - wals: 2660 x 1139, a lot of double sequences
+    - abvd: 1571 x 18543
+    - acd: 1058 x 85218
+- Aligments with less than 4 taxa: (cldf_tiny)
+    - clarkkimmun
+    - lundgrenomagoa
+- Other reasons
+    - science_indoeuropean (is a subset of science with renamed taxa, corresponding to wals_indoeuropean)
+
+Datasets not converted to multi-value alignments:
+- Information must be provided, to infer which binary sites belong to the same characteristic
+    Thus it is not possible for the datasets with binary alignments from phlorest and for the alignment from science
+    Also not possible for sound class alignments from Jäger
+- gaotb: Must be from a former version of lexibank, I got the binary from Jäger, but cannot compute the multi-value
+- For DiACL and Mouton Atlas it could be possible, but requires coding and not sure about thresholds with information loss
+- Those with too much information loss during conversion (see thesis)
+    - For OSF: h=0.1, g=0.1
+    - For CLDF: h=0, g=0.1
+
+Unused multi-value alignments:
+- Those with one state: (Not informative)
+    - hsiuhmongmien
+    - meloniromance
+    - zhoubizic
+    - allenbai
+    - ratcliffearabic
+- Those with two states: (Already binary, problems with iqtree)
+    - chacontukanoan
+    - simsrma
+    - zhangrgyalrong
+    - carvalhopurus
+- Unusually huge alignments: (see above)
+    - wals
+    - acd
+- Aligments with less than 4 taxa:
+    - clarkkimmun
+
+Comments on Lexibank-Extract from Jäger (Lexibank MrBayes)
+- Not in Lexibank anymore: (This is the only one I am still using from Jäger)
+    - gaotb
+- Updated in Lexibank: (means we have a different version than Jäger):
+    - abvdoceanic
+    - walworthpolynesian
+    - liusinitic
+    - utoaztecan
+(All the other ones seem to be identical according to the checks I did. I use my version, not Jägers)

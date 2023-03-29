@@ -35,7 +35,11 @@ database_conversion/conversion_inputs/
 database_conversion/duplicate_check/
 database_conversion/temp/
 database_conversion/.ipynb_checkpoints/
-database_conversion/unused/alignments/
 database_conversion/catg/
 database_conversion/metadata/
+
+#too big for github
+database_conversion/unused/alignments/acd.BIN.cc.phy
+database_conversion/unused/alignments/acd.MULTI.cc.phy
+database_conversion/unused/alignments/abvd.BIN.cc.phy
 
