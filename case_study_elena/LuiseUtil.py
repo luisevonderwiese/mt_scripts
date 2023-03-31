@@ -538,7 +538,51 @@ def rf_dist_matrix(tree_dict):
 
 
 
+kit_green = "#009682"
+kit_orange = "#DF9B1B"
+kit_blue = "#0A64AA"
+kit_maigreen = "#8CB63C"
+kit_yellow = "#FCE500"
+kit_red = "#A22223"
+kit_lila = "#A3107C"
+kit_cyan = "#23A1E0"
 
+names_dict = {
+    "cognate_ie_compatible.tree" : "$T_C$",
+    "geo_duration.tree" : "$T_G$",
+
+    "morpho.phy" : "$A$",
+    "morpho_filtered_indsToUse.phy" : "$\hat{A}$",
+
+    "significant_all_interim.trees" : "$\mathcal{T}_{\t{im}}(\hat{A})$",
+    "all_interim.trees" : "$\mathcal{T}_{\t{im}}(A)$",
+    "filtered_all_interim.trees" : "$\mathcal{T}_{\t{im}}(A_f)$",
+
+    "significant_all_start.trees" : "$\mathcal{T}_{\t{st}}(\hat{A})$",
+    "all_start.trees" : "$\mathcal{T}_{\t{st}}(A)$",
+    "filtered_all_start.trees" : "$\mathcal{T}_{\t{st}}(A_f)$"
+}
+
+
+
+def quartet_distance(tree_name1, tree_name2):
+    tree_name1 = os.path.join(tree_dir, tree_name1)
+    tree_name2 = os.path.join(tree_dir, tree_name2)
+    os.system("./../../tools/qdist/qdist " + tree_name1 + " " + tree_name2 + " >out.txt")
+    qdist = float(open("out.txt").readlines()[1].split("\t")[-1])
+    os.remove("out.txt")
+    return qdist
+
+def quartet_distances(ref_tree_name, tree_set):
+    ref_tree_path  = os.path.join(tree_dir, ref_tree_name)
+    qdists = []
+    for tree in tree_set:
+        open("temp.tree", 'w+').write(tree.write())
+        os.system("./../../tools/qdist/qdist temp.tree " +  ref_tree_path + " >out.txt")
+        qdists.append(float(open("out.txt").readlines()[1].split("\t")[-1]))
+    os.remove("out.txt")
+    os.remove("temp.tree")
+    return qdists
 
 
 
