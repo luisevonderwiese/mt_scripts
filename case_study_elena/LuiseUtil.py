@@ -81,7 +81,7 @@ def set_neg_branches_zero(tree_set_name):
     trees = read_trees_from_ete([tree_set_name])
     for tree in trees:
         tree = set_neg_branches_zero_ete(tree)
-    file_name = tree_dir + (".".join(tree_set_name.split(".")[:-1])) + ".nonneg.trees"
+    file_name = tree_dir + tree_set_name
     with open(file_name, 'w+') as tree_file:
         for tree in trees:
             tree_file.write(tree.write()+"\n")
@@ -553,6 +553,7 @@ names_dict = {
 
     "morpho.phy" : "$A$",
     "morpho_filtered_indsToUse.phy" : "$\hat{A}$",
+    "cognate.phy" : "$A_C$",
 
     "significant_all_interim.trees" : "$\mathcal{T}_{\t{im}}(\hat{A})$",
     "all_interim.trees" : "$\mathcal{T}_{\t{im}}(A)$",
@@ -560,7 +561,11 @@ names_dict = {
 
     "significant_all_start.trees" : "$\mathcal{T}_{\t{st}}(\hat{A})$",
     "all_start.trees" : "$\mathcal{T}_{\t{st}}(A)$",
-    "filtered_all_start.trees" : "$\mathcal{T}_{\t{st}}(A_f)$"
+    "filtered_all_start.trees" : "$\mathcal{T}_{\t{st}}(A_f)$",
+
+    "morpho_filtered_nj_final.phy": "$A_{NJ}$",
+    "morpho_filtered_pars_final.phy": "$A_{Pars}$",
+    "morpho_filtered_ml_final.phy": "$A_{ML}$"
 }
 
 
@@ -583,6 +588,26 @@ def quartet_distances(ref_tree_name, tree_set):
     os.remove("out.txt")
     os.remove("temp.tree")
     return qdists
+
+def average_rf_distance_in_tree_set(tree_set_name):
+    trees = read_trees_from_ete([tree_set_name])
+    distances = []
+    if (len(trees) < 2):
+        return 0
+    for (i, tree1) in enumerate(trees):
+        for j in range(i+1, len(trees)):
+            tree2 = trees[j]
+            distances.append(rf_distance_ete(tree1, tree2))
+    return sum(distances) / len(distances)
+
+def num_trees(tree_set_name):
+    return len(open(tree_dir + tree_set_name).readlines())
+
+def average_rf_distance_to_ref_tree(tree_set_name, tree_name):
+    tree = Tree(tree_dir + tree_name)
+    trees = read_trees_from_ete([tree_set_name])
+    dists = rf_distances_ete(tree, trees)
+    return sum(dists)/len(dists)
 
 
 
