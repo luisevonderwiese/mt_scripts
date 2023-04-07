@@ -14,6 +14,9 @@ from Bio.SeqRecord import SeqRecord
 from Bio.Align import MultipleSeqAlignment
 from Bio.AlignIO.PhylipIO import PhylipWriter
 
+import numpy as np
+from scipy import stats
+
 
 raxml_ng_path = './../../tools/raxml-ng/build/bin/raxml-ng'
 standard_raxml_path = './../../tools/standard-RAxML-master/raxmlHPC-AVX '
@@ -608,6 +611,13 @@ def average_rf_distance_to_ref_tree(tree_set_name, tree_name):
     trees = read_trees_from_ete([tree_set_name])
     dists = rf_distances_ete(tree, trees)
     return sum(dists)/len(dists)
+
+
+def p_value(a1, a2):
+    return stats.ttest_ind(a1, a2)[1]
+
+def pearson_cc(a1, a2):
+    return np.corrcoef(a1, a2)[0][1]
 
 
 
