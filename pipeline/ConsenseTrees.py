@@ -26,4 +26,4 @@ def calculate_consense_trees(data_type, model):
             os.system("./raxml-ng --redo --consense --tree " + tree_path + " --prefix " + os.path.join(dir_path, "consense"))
 
 
-calculate_consense_trees("morph", "MK")
+calculate_consense_trees("lang", "BIN")

@@ -1,0 +1,45 @@
+
+RAxML-NG v. 1.1.0-master released on 04.08.2022 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2 cores, 15 GB RAM
+
+RAxML-NG was called at 05-May-2023 16:03:38 as follows:
+
+./../../tools/raxml-ng/build/bin/raxml-ng --start --tree pars{500} --msa data/language_alignments/morpho_filtered_pars_final.phy --model BIN+G --prefix data/language_alignments/morpho_filtered_pars_final_pars/pars --threads 2 --seed 2
+
+Analysis options:
+  run mode: Starting tree generation
+  start tree(s): parsimony (500)
+  random seed: 2
+  SIMD kernels: AVX2
+  parallelization: coarse-grained (auto), PTHREADS (2 threads), thread pinning: OFF
+
+[00:00:00] Reading alignment from file: data/language_alignments/morpho_filtered_pars_final.phy
+[00:00:00] Loaded alignment with 46 taxa and 113 sites
+
+Alignment comprises 1 partitions and 111 patterns
+
+Partition 0: noname
+Model: BIN+FO+G4m
+Alignment sites / patterns: 113 / 111
+Gaps: 3.71 %
+Invariant sites: 0.00 %
+
+
+NOTE: Binary MSA file created: data/language_alignments/morpho_filtered_pars_final_pars/pars.raxml.rba
+
+[00:00:00] Generating 500 parsimony starting tree(s) with 46 taxa
+
+All starting trees saved to: /home/luise/master_thesis/scripts/case_study_elena/data/language_alignments/morpho_filtered_pars_final_pars/pars.raxml.startTree
+
+
+Execution log saved to: /home/luise/master_thesis/scripts/case_study_elena/data/language_alignments/morpho_filtered_pars_final_pars/pars.raxml.log
+
+Analysis started: 05-May-2023 16:03:38 / finished: 05-May-2023 16:03:38
+
+Elapsed time: 0.254 seconds
+

@@ -8,6 +8,29 @@ from ete3 import Tree
 import numpy as np
 
 
+def read_dict():
+    lines = open("temp/lang/gerardi_and_reichert2021.BIN.cc.csv", "r").readlines()[1:]
+    d={}
+    for line in lines:
+        data = line.split(",")
+        if (len(data) != 2):
+            print(line)
+            continue
+        d[data[1][:-1]] = data[0]
+    return d
+
+
+def rename_taxa_lang_bin_in_tree(t):
+    for leaf in t.iter_leaves():
+        leaf.name = leaf.name.split(".")[-1]
+    return t
+
+def gerardi_tree(t):
+    d = read_dict()
+    for leaf in t.iter_leaves():
+        leaf.name = d[leaf.name]
+    return t
+
 
 def rf_distance(t1, t2):
     rf, max_rf, common_leaves, parts_t1, parts_t2,discard_t1, discart_t2 = t1.robinson_foulds(t2, unrooted_trees = True)
@@ -36,8 +59,16 @@ def read_consensus_trees(data_type, model):
                 tree = Tree()
             else:
                 tree = Tree(tree_path)
+            if data_type == "lang" and model == "BIN":
+                if entry.name == "gerardi_and_reichert2021.BIN.cc.phy":
+                    tree =  gerardi_tree(tree)
+                else:
+                    tree =  rename_taxa_lang_bin_in_tree(tree)
             #tree.resolve_polytomy(recursive=True)
-            name = entry.name.split(".")[0] + ".phy"
+            if data_type == "morph":
+                name = entry.name.split(".")[0] + ".phy"
+            if data_type == "lang":
+                name = get_neutral_lang_name(entry.name)
             consensus_trees[name] = tree
     return consensus_trees
 
@@ -108,6 +139,11 @@ def add_rf_data(df, data_type):
         c_tree_gtr = consensus_trees_gtr[name]
         c_tree_mk = consensus_trees_mk[name]
         e_tree_bin = Tree(row["BIN_newick_eval"])
+        if data_type == "lang":
+            if row["verbose_name"] == "gerardi_and_reichert2021.cc.phy":
+                e_tree_bin =  gerardi_tree(e_tree_bin)
+            else:
+                e_tree_bin =  rename_taxa_lang_bin_in_tree(e_tree_bin)
         e_tree_gtr = Tree(row["GTR_newick_eval"])
         e_tree_mk = Tree(row["MK_newick_eval"])
 
@@ -137,7 +173,7 @@ def add_aic_scores(df, data_type, model):
         if data_type == "morph":
             name = data[0].split(".")[0] + ".phy"
         if data_type == "lang":
-            name = data[0].split(".")[0] + ".phy"
+            name = get_neutral_lang_name(data[0])
         cur_model = data[1]
         if cur_model != model:
             continue
@@ -178,7 +214,7 @@ def add_avg_col_states(df, data_type):
         if data_type == "morph":
             name = data[0]
         if data_type == "lang":
-            name = data[0]
+            name = get_neutral_lang_name(data[0])
         avg_col_states[name] = float(data[1])
     column = []
     for i, row in df.iterrows():
@@ -194,7 +230,7 @@ def add_max_states(df, data_type):
         if data_type == "morph":
             name = data[0]
         if data_type == "lang":
-            name = data[0]
+            name = get_neutral_lang_name(data[0])
         max_states[name] = float(data[1])
     column = []
     for i, row in df.iterrows():
@@ -203,12 +239,26 @@ def add_max_states(df, data_type):
     return df
 
 
+def get_neutral_lang_name(name):
+    name_parts = name.split(".")
+    del name_parts[1]
+    return ".".join(name_parts)
+
+def add_neutral_names(df):
+    neutral_names = []
+    for i, row in df.iterrows():
+        neutral_names.append(get_neutral_lang_name(row["verbose_name"]))
+    df = df.rename(columns={'verbose_name': 'verbose_name_with_type'})
+    df["verbose_name"] = neutral_names
+    return df
+
+
 def extend_df(data_type):
-    data_gtr = pd.read_parquet("training_data/" + data_type + "/MULTI_GTR.parquet")
-    data_mk = pd.read_parquet("training_data/" + data_type + "/full_MK.parquet")
-    data_bin = pd.read_parquet("training_data/" + data_type + "/binarized.parquet")
 
     if data_type == "morph":
+        data_gtr = pd.read_parquet("training_data/" + data_type + "/MULTI_GTR.parquet")
+        data_mk = pd.read_parquet("training_data/" + data_type + "/full_MK.parquet")
+        data_bin = pd.read_parquet("training_data/" + data_type + "/binarized.parquet")
         #remove binary datasets
         data_mk = data_mk.groupby(data_mk.state_type).get_group("multistate")
         #unify names
@@ -221,6 +271,16 @@ def extend_df(data_type):
         data_gtr = data_gtr.merge(annotations, on="verbose_name", how="inner")
         data_mk = data_mk.merge(annotations, on="verbose_name", how="inner")
         data_bin = data_bin.merge(annotations, on="verbose_name", how="inner")
+
+
+    if data_type == "lang":
+        data_bin = pd.read_parquet("training_data/" + data_type + "/BIN.parquet")
+        data_gtr = pd.read_parquet("training_data/" + data_type + "/GTR.parquet")
+        data_mk = pd.read_parquet("training_data/" + data_type + "/MK.parquet")
+
+        data_bin = add_neutral_names(data_bin)
+        data_gtr = add_neutral_names(data_gtr)
+        data_mk = add_neutral_names(data_mk)
 
 
     add_pattern_proportion(data_gtr)
@@ -244,5 +304,5 @@ def extend_df(data_type):
     df = add_max_states(df, data_type)
     df.to_parquet("training_data/" + data_type + "/extended.parquet")
 
-extend_df("morph")
-#
+#extend_df("morph")
+extend_df("lang")
